@@ -1,6 +1,24 @@
 .container {
     text-align: center;
     padding-top: 18%;
- 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Центрирование контента по вертикали и горизонтали */
 }
 
+.buttons-container {
+    display: flex;
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    margin-top: 20px; /* Добавляем небольшой отступ сверху */
+}
+
+.btn {
+    width: 10em;
+    height: 3em;
+    margin-right: 10px;
+}
+
+.buttons-container {
+    display: flex;
+}
