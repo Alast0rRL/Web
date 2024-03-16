@@ -1,0 +1,141 @@
+body {
+    margin: 0px;
+}
+
+
+.header {
+    background-image: url(back.jfif);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.header-line {
+    padding-top: 45px;
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.header-title {
+    position: absolute;
+    padding-top: 60px;
+    font-size: 36px;
+    font-family: "JetBrains Mono" ;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+
+.header-down {
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    
+}
+
+
+
+.ava {
+    position: absolute;
+    left: 5px;
+    margin-top: -521px;
+    padding-left: 5px;
+}
+
+.ava2 {
+    position: absolute;
+    left: 5px;
+    margin-top: -521px;
+    padding-left: 379px;
+}
+
+.ava3 {
+    position: absolute;
+    left: 5px;
+    margin-top: -521px;
+    padding-left: 752px;
+    
+}
+
+.ava4 {
+    position: absolute;
+    left: 5px;
+    margin-top: -520px;
+    padding-left: 1127px;
+}
+
+.ava5 {
+    position: absolute;
+    left: 5px;
+    margin-top: -521px;
+    padding-left: 1502px;
+
+}
+
+.photo {
+    position: absolute;
+    left: 5px;
+    margin-top: -480px;
+    left: 1220px;
+    
+}
+
+.text-1 {
+    position: absolute;
+    margin-top: -120px;
+    left: 50px;
+    font-weight: 400;
+    font-size: 36px;
+    font-family: "JetBrains Mono" ;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.text-2 {
+    position: absolute;
+    margin-top: -120px;
+    left: 420px;
+    font-weight: 400;
+    font-size: 36px;
+    font-family: "JetBrains Mono" ;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.text-3 {
+    position: absolute;
+    margin-top: -120px;
+    left: 785px;
+    font-weight: 400;
+    font-size: 36px;
+    font-family: "JetBrains Mono" ;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.text-4 {
+    position: absolute;
+    margin-top: -130px;
+    left: 1138px;
+    font-weight: 400;
+    font-size: 32px;
+    font-family: "JetBrains Mono" ;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.text-5 {
+    position: absolute;
+    margin-top: -130px;
+    left: 1515px;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: "JetBrains Mono" ;
+    color: #FFFFFF;
+    text-align: center;
+}
