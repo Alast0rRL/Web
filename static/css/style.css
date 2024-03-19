@@ -73,7 +73,7 @@ body {
     position: absolute;
     left: 5px;
     margin-top: -521px;
-    padding-left: 1502px;
+    padding-left: 1499px;
 
 }
 
@@ -104,7 +104,7 @@ body {
 .text-3 {
     position: absolute;
     margin-top: -120px;
-    left: 785px;
+    left: 780px;
     font-weight: 400;
     font-size: 36px;
     font-family: "JetBrains Mono" ;
@@ -126,9 +126,9 @@ body {
 .text-5 {
     position: absolute;
     margin-top: -130px;
-    left: 1515px;
+    left: 1500px;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 25px;
     font-family: "JetBrains Mono" ;
     color: #FFFFFF;
     text-align: center;

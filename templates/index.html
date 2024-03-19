@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>КНОПОЧКИ</title>
+    <title>Цифровой рынок аккаунтов</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
 </head>
 <body>
-    <div class="container">       
-        <input type="text" name="" value="">
-        <br>
-        <div class="buttons-container">
-            <button class="btn"></button>
-            <button class="btn"></button>
-        </div>
-        <br>
 
-        <form action="/mem" method="get">
-            <button type="submit">mem</button>
-        </form>
-        
-    </div>
-</body>   
+<header>
+    <nav>
+        <div class="nav">
+        <button class="market-button">Маркет</button>
+        <button class="market-button">Торговая площадка</button>
+        <button class="search-button">Поиск...</button>
+
+
+
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="account-item">
+        <h2>Аккаунт 1</h2>
+        <p>Игры: The Witcher 3, Raft, The Forest</p>
+        <p>Цена: 500P</p>
+        <button>Купить</button>
+    </section>
+    <!-- Добавьте дополнительные секции аккаунтов здесь -->
+</main>
+
+<footer>
+    <p>© 2024 Цифровой рынок аккаунтов</p>
+</footer>
+
+</body>
 </html>

@@ -1,24 +1,65 @@
-.container {
+body {
+    font-family: 'VAG World';
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header, footer {
+    font-family: 'VAG World';
+    background-color: #232323;
+    color: white;
+    padding: 10px 0;
     text-align: center;
-    padding-top: 18%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Центрирование контента по вертикали и горизонтали */
+}
+main {
+    font-family: 'VAG World';
+    padding: 20px;
 }
 
-.buttons-container {
-    display: flex;
-    justify-content: center; /* Центрируем кнопки по горизонтали */
-    margin-top: 20px; /* Добавляем небольшой отступ сверху */
+.account-item {
+    font-family: 'VAG World';
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
 }
 
-.btn {
-    width: 10em;
-    height: 3em;
-    margin-right: 10px;
+
+.market-button {
+    float: left;
+    font-family: 'VAG World';
+    background-color: #FF3B30; /* Красный цвет фона */
+    color: white; /* Белый цвет текста */
+    border-radius: 25px; /* Скругленные углы */
+    padding: 10px 20px; /* Внутренние отступы */
+    border: none; /* Без границы */
+    font-size: 18px; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
 }
 
-.buttons-container {
-    display: flex;
+.market-button:hover {
+    font-family: 'VAG World';
+    background-color: #FF5E52; /* Чуть более светлый красный цвет при наведении */
+}
+
+
+.search-button {
+    font-family: 'VAG World';
+    background-color: #313131; /* Зеленый цвет фона */
+    color: white; /* Белый цвет текста */
+    border: none; /* Без границы */
+    padding: 15px 32px; /* Внутренние отступы */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Без подчеркивания текста */
+    display: inline-block; /* Тип отображения */
+    font-size: 16px; /* Размер шрифта */
+    margin: 4px 2px; /* Внешние отступы */
+    cursor: pointer; /* Курсор в виде указателя */
+    border-radius: 8px; /* Скругленные углы */
+}
+
+.search-button:hover {
+    font-family: 'VAG World';
+    background-color: #323232; /* Чуть более темный зеленый цвет при наведении */
 }
