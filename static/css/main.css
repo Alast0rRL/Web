@@ -51,8 +51,8 @@ header, footer {
     cursor: pointer;
     transition: background-color 0.3s;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .search-button {
@@ -66,7 +66,7 @@ header, footer {
     font-size: 20px;
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 0px;
+    margin-left: 50px;
     width: 430px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     
@@ -95,7 +95,7 @@ header, footer {
     cursor: pointer;
     transition: background-color 0.3s;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    margin-left: 50px; /* Уменьшаем отступ слева */
+    margin-left: 75px; /* Уменьшаем отступ слева */
 }
 
 
@@ -119,3 +119,56 @@ header, footer {
 .market-button:hover {
     background-color: #ff7167;
 }
+.title{
+    text-align: center;
+}
+main{
+    font-family: 'VAG World';
+    background-color: #232323;
+    color: white;
+    height: 500px;
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 200px;
+    cursor: auto;
+    width: 1500px;
+}
+
+.block_1{
+    background-color: #313131;
+    font-family: 'VAG World';
+    color: white;
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.str_1 {
+    display: flex;
+}
+.price {
+    position:absolute;
+    float: right;
+    right: 0px;
+    margin-right: 200px; /* Устанавливаем отступ между элементами в 100 пикселей */
+  }
+
+  .status{
+    position:relative;
+    float: right;
+    right: 0px;
+    margin-left: 20px; /* Устанавливаем отступ между элементами в 100 пикселей */
+ }
+
+ .buy_button{
+    position:absolute;
+    height: 35px;
+    right: 170px;
+    margin-top: 20px;
+ }
