@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: #313131;
 }
+
 header, footer {
     font-family: 'VAG World';
     background-color: #232323;
@@ -10,84 +11,95 @@ header, footer {
     height: 100px;
     padding: 0px 0px;
 }
-.logo{
+
+.logo {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 75px; /* ширина изображения */
-    height: 75px; /* высота изображения */
+    width: 75px;
+    height: 75px;
 }
 
-.up{
+.up {
     position: absolute;
     margin-top: 15px;
     margin-left: 100px;
     margin-right: 100px;
     height: 55px;
-    width: 1600px; /* ширина изображения */
+    width: 1600px;
 }
 
-.block_1{
+.block_up {
     margin-left: 100px;
     margin-top: 15px;
+    position: relative; /* Добавляем позиционирование относительно */
 }
 
-.market-button {
-    float: left;
-    margin-left: 50px;
+.search-container {
+    display: inline-block;
+    vertical-align: middle; /* Выравниваем вертикально по центру */
+}
+
+.market-button, .help-button {
     font-family: 'VAG World';
     background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
-    color: white; /* Белый цвет текста */
-    border-radius: 15px; /* Скругленные углы */
-    padding: 0px 20px; /* Внутренние отступы */
-    border: none; /* Без границы */
-    font-size: 20px; /* Размер шрифта */
-    cursor: pointer; /* Курсор в виде указателя */
-    transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+    color: white;
+    border-radius: 15px;
+    padding: 0px 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .search-button {
-    margin-left: 100px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     font-family: 'VAG World';
-    background-color: #313131; 
-    color: #989898; /* Белый цвет текста */
-    padding: 0px 15px; /* Внутренние отступы */
-    border: none; /* Без границы */
-    text-align: left; /* Выравнивание текста по центру */
-    display: inline-block; /* Тип отображения */
-    font-size: 20px; /* Размер шрифта */
-    cursor: pointer; /* Курсор в виде указателя */
-    border-radius: 15px; /* Скругленные углы */
-    width: 400px;
-}
-
-.search-button:hover {
-    font-family: 'VAG World';
-    background-color: #424242; /* Чуть более темный зеленый цвет при наведении */
-}
-
-.help-button{
-    margin-left: 100px;
-    font-family: 'VAG World';
-    background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
-    color: white; /* Белый цвет текста */
-    border-radius: 15px; /* Скругленные углы */
-    padding: 0px 20px; /* Внутренние отступы */
-    border: none; /* Без границы */
-    font-size: 20px; /* Размер шрифта */
-    cursor: pointer; /* Курсор в виде указателя */
-    transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+    background-color: #313131;
+    color: #989898;
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 0px;
+    width: 430px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     
 }
-.knopka{
-    position:absolute;
-    left:0px
+
+.knopka {
+    position: absolute;
+    left: 915px;
+    margin-top: 7px;
+    background-color: #232323;
+    font-family: 'VAG World';
+    border-radius: 10px;
+    padding: 0px 5px;
+    color: white;
+    border: none;
 }
-.login{
+
+.help-button {
+    font-family: 'VAG World';
+    background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 0px 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-left: 50px; /* Уменьшаем отступ слева */
+}
+
+
+.login {
     text-align: center;
     line-height: 1.5;
     position: absolute;
@@ -96,23 +108,14 @@ header, footer {
     top: 0px;
 }
 
-.ava{
+.ava {
     position: absolute;
     top: 0px;
     left: 1600px;
-    width: 75px; /* ширина изображения */
-    height: 75px; /* высота изображения */
+    width: 75px;
+    height: 75px;
 }
-
-.account-item {
-    font-family: 'VAG World';
-    background-color: #232323;
-    padding-left: 15px;
-    border-radius: 20px; /* Скругленные углы */
-}
-
 
 .market-button:hover {
-    font-family: 'VAG World';
-    background-color: #ff7167; /* Чуть более светлый красный цвет при наведении */
+    background-color: #ff7167;
 }

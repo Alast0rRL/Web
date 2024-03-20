@@ -7,22 +7,24 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
-<header>
-    <div class="up">
-        <img src="static\img\main\logo.png" class="logo" alt="Описание изображения">
-        <div class = "block_1">
-            <button class="market-button">Маркет</button>
-            <button class="market-button">Торговая площадка</button>
-            <form action="/search" method="POST">
-                <input type="text" name="query" placeholder="Введите запрос" class="search-button">
-                <input type="submit" value="Поиск"class="knopka">
-            </form>
-            <button class="help-button">Техническая поддержка</button>
+    <header>
+        <div class="up">
+            <img src="static\img\main\logo.png" class="logo" alt="Описание изображения">
+            <div class="block_up">
+                <button class="market-button">Маркет</button>
+                <button class="market-button">Торговая площадка</button>
+                <form action="/search" method="POST" class="search-container">
+                    <input type="text" name="query" placeholder="Введите запрос" class="search-button">
+                </form>
+                <button class="help-button">Техническая поддержка</button>
+            </div>
+            <p class="login">{{login}}<br>{{balance}}$</p>
+            <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
-        <p class= "login">{{login}}<br>{{balance}}$</p>
-        <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
-    </div>
-</header>
+    </header>
+
+
+
 
 <main>
     <section class="account-item">

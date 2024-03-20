@@ -20,8 +20,11 @@ def search():
 @app.route('/search_results')
 def search_results():
     query = request.args.get('query')
+    if query=="mem":
+        return render_template("mem/mem.html")
+    else:
     # Здесь вы можете использовать запрос query для вывода результатов поиска
-    return f'Результаты поиска для: {query}'
+        return f'Результаты поиска для: {query}'
 
 @app.route('/mem')
 def mem():
