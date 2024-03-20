@@ -39,9 +39,9 @@ def search_results():
     # Здесь вы можете использовать запрос query для вывода результатов поиска
         return f'Результаты поиска для: {query}'
 
-@app.route('/mem')
-def mem():
-    return render_template("mem/mem.html")
+@app.route('/help', methods=['POST'])
+def help():
+    return redirect("https://i.pinimg.com/736x/94/95/d9/9495d94e62132fb17ae2b9ddff0690bf.jpg")
 
 if __name__ == '__main__':
     app.run(debug=True)
