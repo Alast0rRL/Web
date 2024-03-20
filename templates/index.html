@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Цифровой рынок аккаунтов</title>
-    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
 
 <header>
-    <nav>
-        <div class="nav">
-        <button class="market-button">Маркет</button>
-        <button class="market-button">Торговая площадка</button>
-        <button class="search-button">Поиск...</button>
-
-
-
+    <div class="up">
+        <img src="static\img\main\logo.png" class="logo" alt="Описание изображения">
+        <div class = "block_1">
+            <button class="market-button">Маркет</button>
+            <button class="market-button">Торговая площадка</button>
+            <form action="/search" method="POST">
+                <input type="text" name="query" placeholder="Введите запрос" class="search-button">
+                <input type="submit" value="Поиск"class="knopka">
+            </form>
+            <button class="help-button">Техническая поддержка</button>
         </div>
-    </nav>
+        <p class= "login">{{login}}<br>{{balance}}$</p>
+        <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
+    </div>
 </header>
 
 <main>
     <section class="account-item">
-        <h2>Аккаунт 1</h2>
-        <p>Игры: The Witcher 3, Raft, The Forest</p>
+        <h2>{{description}}</h2>
+        <p>{{description}}</p>
         <p>Цена: 500P</p>
         <button>Купить</button>
     </section>
     <!-- Добавьте дополнительные секции аккаунтов здесь -->
 </main>
-
-<footer>
-    <p>© 2024 Цифровой рынок аккаунтов</p>
-</footer>
 
 </body>
 </html>
