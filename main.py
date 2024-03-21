@@ -29,6 +29,10 @@ class Tovar(db.Model):
 @app.route('/' ,methods=['POST','GET'])
 @app.route('/home' ,methods=['POST','GET'])
 def index():
+
+    tovars =Tovar.query.all
+
+
     login = "Alast0r"
     balance = 123455
     description_bl1= "Описание товара 100000 букв игры аккаунгты деньги текст пробел пробел 123"
