@@ -2,11 +2,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #313131;
-    font-family: 'VAG World';
 }
 
 header, footer {
-    font-family: 'VAG World';
     background-color: #232323;
     color: white;
     height: 100px;
@@ -44,7 +42,7 @@ header, footer {
 }
 
 .button{
-    font-family: 'VAG World';
+    font-family: 'Gang of Three[RUS by Daymarius]';
     display: inline-flex;
     background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
     color: white;
@@ -56,11 +54,12 @@ header, footer {
     transition: background-color 0.3s;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin-left: 25px;
+    height: 40px;
+    line-height: 40px
 }
 
 .search-button {
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    font-family: 'VAG World';
+    font-family: 'Gang of Three[RUS by Daymarius]';
     background-color: #313131;
     color: #989898;
     padding: 0px 15px;
@@ -69,11 +68,12 @@ header, footer {
     font-size: 20px;
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 50px;
-    margin-right: 25px;
+    margin-left: 25px;
     width: 430px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     display: inline-block; /* или inline */
+    height: 40px;
+    line-height: 40px
 }
 
 .knopka {
@@ -96,13 +96,13 @@ header, footer {
 }
 
 .login {
-    font-family: 'VAG World';
-     text-align: center;
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    text-align: center;
     line-height: 1.5;
     position: absolute;
     margin-right: 25px;
     right: 0px;
-    top: 0px;
+    margin-top: 12px;
 }
 
 .ava {
@@ -120,7 +120,7 @@ header, footer {
     text-align: center;
 }
 main{
-    font-family: 'VAG World';
+    font-family: 'Gang of Three[RUS by Daymarius]';
     background-color: #232323;
     color: white;
     height: 500px;

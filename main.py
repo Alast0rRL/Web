@@ -12,8 +12,6 @@ class User(db.Model):
     password = db.Column(db.String(80), nullable=False)
     balance = db.Column(db.Integer, nullable=False)
 
-
-
     def __repr__(self):
         return '<User %r>' % self.id
     
