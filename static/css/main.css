@@ -152,7 +152,7 @@ main{
     padding-bottom: 1px;
 }
 
-.block_1{
+.block{
     background-color: #313131;
     font-family: 'Gang of Three[RUS by Daymarius]';
     color: white;
@@ -171,27 +171,18 @@ main{
 }
 .price {
     position:absolute;
-    float: right;
-    right: 0px;
-    margin-right: 200px; /* Устанавливаем отступ между элементами в 100 пикселей */
+    text-align: left;
+    margin-left: 1400px; /* Устанавливаем отступ между элементами в 100 пикселей */
     letter-spacing: 1px;
   }
 
-  .status{
-    position:relative;
-    float: right;
-    right: 0px;
-    margin-left: 20px; /* Устанавливаем отступ между элементами в 100 пикселей */
-    letter-spacing: 1px;
- }
-
  .buy_button{
-    position:relative;
+    position:absolute;
     display: flex;
     height: 35px;
     width: auto ;
-    margin-top: 20px;
-    margin-left: 1000px;
+    margin-top: 0px;
+    margin-left: 1150px;
     margin-bottom: 20px;
     letter-spacing: 1px;
  }

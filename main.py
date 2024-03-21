@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
-#from time import datatime
+from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
@@ -21,7 +21,7 @@ class Tovar(db.Model):
     description = db.Column(db.String(15), nullable=False, unique=True)
     login = db.Column(db.String(15), nullable=False, unique=True)
     price = db.Column(db.Integer, nullable=False)
-    #date = db.Column(db.Datatime, default=datatime.utcnow)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Tovar %r>' % self.id
@@ -31,7 +31,7 @@ class Tovar(db.Model):
 @app.route('/home' ,methods=['POST','GET'])
 def index():
 
-    tovars =Tovar.query.order_by().all()
+    tovars =Tovar.query.order_by(Tovar.date).all()
 
 
     login = "Alast0r"
@@ -41,7 +41,8 @@ def index():
     seller_login = "Panov"
     seller_status= "Online"
 
-    return render_template("index.html",login=login,
+    return render_template("index.html",tovars=tovars,
+        login=login,
         balance=balance,
         description_bl1=description_bl1,
         price_bl1=price_bl1,
@@ -57,20 +58,21 @@ def create_tovar():
         description = request.form['description']
         login = request.form['login']
         price = request.form['price']
-        #date = date
+        date = datetime.utcnow()  # Используем datetime.utcnow() для получения текущей даты и времени
 
-        tovar = Tovar(id=id, description=description, login=login, price=price)
+        tovar = Tovar(id=id, description=description, login=login, price=price, date=date)  # Передаем значение date в объект Tovar
         try:
             db.session.add(tovar)
             db.session.commit()
-            print("User added successfully!")
+            print("Tovar added successfully!")
             return redirect('/')
         except Exception as e:
             db.session.rollback()
-            print(f"Error adding user: {str(e)}")
-            return f"Произошла ошибка при добавлении пользователя: {str(e)}"
+            print(f"Error adding tovar: {str(e)}")
+            return f"Произошла ошибка при добавлении товара: {str(e)}"
     else:
         return render_template("create-tovar.html")
+
 
 
 @app.route('/create-users', methods=['POST','GET'])

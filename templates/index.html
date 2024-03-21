@@ -30,77 +30,21 @@
 
 <main>
     <h2 class="title">Товары</h2>
-    <div class="block_1"> 
+    {% for el in tovars %}
+        <div class="block"> 
         <div class="str_1">
-            <p>{{description_bl1}}</p>
-            <p class="price">{{price_bl1}}</p>
+            <p>{{el.description}}</p>
+            <p class="price">{{el.price}} Р</p>
         </div>
         <div class="str_1">
-            <p>{{seller_login}}</p>
-            <p class="status">{{seller_status}}</p>
+            <p>{{el.login}}</p>
             <div class="buy_button">
                 <button class="button">В корзину</button>
                 <button class="button">Купить</button>
             </div>
-        </div>    
-    </div>
-    <!-- Добавьте дополнительные секции аккаунтов здесь -->
-    <div class="block_1"> 
-        <div class="str_1">
-            <p>{{description_bl1}}</p>
-            <p class="price">{{price_bl1}}</p>
         </div>
-        <div class="str_1">
-            <p>{{seller_login}}</p>
-            <p class="status">{{seller_status}}</p>
-            <div class="buy_button">
-                <button class="button">В корзину</button>
-                <button class="button">Купить</button>
-            </div>
-        </div>    
     </div>
-    <div class="block_1"> 
-        <div class="str_1">
-            <p>{{description_bl1}}</p>
-            <p class="price">{{price_bl1}}</p>
-        </div>
-        <div class="str_1">
-            <p>{{seller_login}}</p>
-            <p class="status">{{seller_status}}</p>
-            <div class="buy_button">
-                <button class="button">В корзину</button>
-                <button class="button">Купить</button>
-            </div>
-        </div>    
-    </div>
-    <div class="block_1"> 
-        <div class="str_1">
-            <p>{{description_bl1}}</p>
-            <p class="price">{{price_bl1}}</p>
-        </div>
-        <div class="str_1">
-            <p>{{seller_login}}</p>
-            <p class="status">{{seller_status}}</p>
-            <div class="buy_button">
-                <button class="button">В корзину</button>
-                <button class="button">Купить</button>
-            </div>
-        </div>    
-    </div>
-    <div class="block_1"> 
-        <div class="str_1">
-            <p>{{description_bl1}}</p>
-            <p class="price">{{price_bl1}}</p>
-        </div>
-        <div class="str_1">
-            <p>{{seller_login}}</p>
-            <p class="status">{{seller_status}}</p>
-            <div class="buy_button">
-                <button class="button">В корзину</button>
-                <button class="button">Купить</button>
-            </div>
-        </div>    
-    </div>
+    {% endfor %}
 </main>
 
 <footer>
