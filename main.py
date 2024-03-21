@@ -17,7 +17,8 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.id
     
-@app.route('/')
+@app.route('/' ,methods=['POST','GET'])
+@app.route('/home' ,methods=['POST','GET'])
 def index():
     login = "Alast0r"
     balance = 123455
@@ -38,6 +39,7 @@ def index():
 @app.route('/create-users', methods=['POST','GET'])
 def create_users():
     if request.method == 'POST':
+        id = request.form['id']
         login = request.form['login']
         email = request.form['email']
         password = request.form['password']
@@ -45,8 +47,9 @@ def create_users():
         
         print(f"Trying to add user with login: {login}, email: {email}, password: {password}, balance: {balance}")
 
-        user = User(login=login, email=email, password=password, balance=balance)
+        user = User(id= id, login=login, email=email, password=password, balance=balance)
         try:
+            print(f"User details: login={user.login}, email={user.email}, password={user.password}, balance={user.balance}")
             db.session.add(user)
             db.session.commit()
             print("User added successfully!")

@@ -1,6 +1,4 @@
-from main import app, db
+from main import db, app
 
-# Создайте контекст приложения
 with app.app_context():
-    # Теперь вы можете работать с вашей базой данных
     db.create_all()
