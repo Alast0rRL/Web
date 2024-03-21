@@ -1,8 +1,17 @@
-body {
+body{
     margin: 0;
     padding: 0;
-    background-color: #313131;
+    background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный цвет фона */
+    background-image: url('back.png'); /* Замените 'your-image-url.jpg' на путь к вашему изображению */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
 
 header, footer {
     background-color: #232323;
@@ -73,7 +82,7 @@ header, footer {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     display: inline-block; /* или inline */
     height: 40px;
-    line-height: 40px
+    line-height: 40px;
 }
 
 .knopka {
@@ -117,7 +126,9 @@ header, footer {
     background-color: #ff7167;
 }
 .title{
+    position: relative;
     text-align: center;
+    top: 15px;
 }
 main{
     font-family: 'Gang of Three[RUS by Daymarius]';
@@ -139,7 +150,7 @@ main{
 
 .block_1{
     background-color: #313131;
-    font-family: 'VAG World';
+    font-family: 'Gang of Three[RUS by Daymarius]';
     color: white;
     padding: 0px 15px;
     border: none;
@@ -167,10 +178,13 @@ main{
  }
 
  .buy_button{
-    position:absolute;
+    position:relative;
+    display: flex;
     height: 35px;
-    right: 170px;
+    width: auto ;
     margin-top: 20px;
+    margin-left: 1000px;
+    margin-bottom: 20px;
  }
  form {
     display: inline-block; /* или inline */

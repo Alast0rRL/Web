@@ -15,23 +15,46 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.id
     
+
+class Tovar(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    description = db.Column(db.String(15), nullable=False, unique=True)
+    login = db.Column(db.String(15), nullable=False, unique=True)
+    price = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return '<Tovar %r>' % self.id
+    
+
 @app.route('/' ,methods=['POST','GET'])
 @app.route('/home' ,methods=['POST','GET'])
 def index():
     login = "Alast0r"
     balance = 123455
-    description_bl1 = "The Witcher 3 | Raft | The Forest | BeamNG | PAYDAY 2 | Garrys Mod | Far Cry 2 (БЕЗ ПРАЙМ-СТАТУСА)"
-    price_bl1 = "Цена: 500P"
-    seller_login = "Panovnic"
-    seller_status = "Online"
 
-    return render_template("index.html", description_bl1=description_bl1,
-        price_bl1=price_bl1,
-        login=login,
-        balance=balance,
-        seller_login=seller_login,
-        seller_status=seller_status,
-        )
+    return render_template("index.html",login=login,
+        balance=balance,)
+
+@app.route('/create-tovar', methods=['POST','GET'])
+def create_tovar():
+    if request.method == 'POST':
+        id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+        description = db.Column(db.String(15), nullable=False, unique=True)
+        login = db.Column(db.String(15), nullable=False, unique=True)
+        price = db.Column(db.Integer, nullable=False)
+
+        tovar = Tovar(id=id, description=description, login=login, price=price)
+        try:
+            db.session.add(tovar)
+            db.session.commit()
+            print("User added successfully!")
+            return redirect('/')
+        except Exception as e:
+            db.session.rollback()
+            print(f"Error adding user: {str(e)}")
+            return f"Произошла ошибка при добавлении пользователя: {str(e)}"
+    else:
+        return render_template("create-tovar.html")
 
 
 @app.route('/create-users', methods=['POST','GET'])
