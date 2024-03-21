@@ -98,6 +98,8 @@ def search_results():
         return render_template("mem/mem.html")
     elif query=="Равиль" or query=="равиль":
         return render_template("create-users.html")
+    elif query=="Товар" or query=="товар":
+        return render_template("create-users.html")
     else:
     # Здесь вы можете использовать запрос query для вывода результатов поиска
         return f'Результаты поиска для: {query}'
