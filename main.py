@@ -31,17 +31,27 @@ class Tovar(db.Model):
 def index():
     login = "Alast0r"
     balance = 123455
+    description_bl1= "Описание товара 100000 букв игры аккаунгты деньги текст пробел пробел 123"
+    price_bl1= "50 000р"
+    seller_login = "Panov"
+    seller_status= "Online"
 
     return render_template("index.html",login=login,
-        balance=balance,)
+        balance=balance,
+        description_bl1=description_bl1,
+        price_bl1=price_bl1,
+        seller_login=seller_login,
+        seller_status=seller_status
+        
+        )
 
 @app.route('/create-tovar', methods=['POST','GET'])
 def create_tovar():
     if request.method == 'POST':
-        id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-        description = db.Column(db.String(15), nullable=False, unique=True)
-        login = db.Column(db.String(15), nullable=False, unique=True)
-        price = db.Column(db.Integer, nullable=False)
+        id = request.form['id']
+        description = request.form['description']
+        login = request.form['login']
+        price = request.form['price']
 
         tovar = Tovar(id=id, description=description, login=login, price=price)
         try:
@@ -99,7 +109,7 @@ def search_results():
     elif query=="Равиль" or query=="равиль":
         return render_template("create-users.html")
     elif query=="Товар" or query=="товар":
-        return render_template("create-users.html")
+        return render_template("create-tovar.html")
     else:
     # Здесь вы можете использовать запрос query для вывода результатов поиска
         return f'Результаты поиска для: {query}'
