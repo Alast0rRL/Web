@@ -31,7 +31,7 @@ class Tovar(db.Model):
 @app.route('/home' ,methods=['POST','GET'])
 def index():
 
-    tovars =Tovar.query.order_by(Tovar.date).all()
+    tovars =Tovar.query.order_by(Tovar.date.desc()).all()
 
 
     login = "Alast0r"

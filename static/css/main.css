@@ -13,7 +13,7 @@ body{
 }
 
 
-header, footer {
+header{
     background-color: #232323;
     color: white;
     height: 100px;
@@ -167,14 +167,18 @@ main{
 }
 .str_1 {
     display: flex;
+    flex-direction: row;
+    letter-spacing: 1px;
+
+}
+
+.price {
+    margin-left: auto;
+    margin-right: 15px;
+    text-align: right;
     letter-spacing: 1px;
 }
-.price {
-    position:absolute;
-    text-align: left;
-    margin-left: 1400px; /* Устанавливаем отступ между элементами в 100 пикселей */
-    letter-spacing: 1px;
-  }
+
 
  .buy_button{
     position:absolute;
@@ -186,6 +190,12 @@ main{
     margin-bottom: 20px;
     letter-spacing: 1px;
  }
+
+
  form {
     display: inline-block; /* или inline */
+}
+
+.date{
+    margin-left: 20px;
 }
