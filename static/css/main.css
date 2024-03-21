@@ -64,7 +64,8 @@ header, footer {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin-left: 25px;
     height: 40px;
-    line-height: 40px
+    line-height: 40px;
+    letter-spacing: 1px;
 }
 
 .search-button {
@@ -78,11 +79,12 @@ header, footer {
     cursor: pointer;
     border-radius: 15px;
     margin-left: 25px;
-    width: 430px;
+    width: 375px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     display: inline-block; /* или inline */
     height: 40px;
     line-height: 40px;
+    letter-spacing: 1px;
 }
 
 .knopka {
@@ -95,6 +97,7 @@ header, footer {
     padding: 0px 5px;
     color: white;
     border: none;
+    
 }
 
 .help{
@@ -112,6 +115,7 @@ header, footer {
     margin-right: 25px;
     right: 0px;
     margin-top: 12px;
+    letter-spacing: 1px;
 }
 
 .ava {
@@ -159,15 +163,18 @@ main{
     cursor: pointer;
     border-radius: 15px;
     margin-bottom: 50px;
+    
 }
 .str_1 {
     display: flex;
+    letter-spacing: 1px;
 }
 .price {
     position:absolute;
     float: right;
     right: 0px;
     margin-right: 200px; /* Устанавливаем отступ между элементами в 100 пикселей */
+    letter-spacing: 1px;
   }
 
   .status{
@@ -175,6 +182,7 @@ main{
     float: right;
     right: 0px;
     margin-left: 20px; /* Устанавливаем отступ между элементами в 100 пикселей */
+    letter-spacing: 1px;
  }
 
  .buy_button{
@@ -185,6 +193,7 @@ main{
     margin-top: 20px;
     margin-left: 1000px;
     margin-bottom: 20px;
+    letter-spacing: 1px;
  }
  form {
     display: inline-block; /* или inline */

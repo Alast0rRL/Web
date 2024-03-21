@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
-
+#from time import datatime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
@@ -21,6 +21,7 @@ class Tovar(db.Model):
     description = db.Column(db.String(15), nullable=False, unique=True)
     login = db.Column(db.String(15), nullable=False, unique=True)
     price = db.Column(db.Integer, nullable=False)
+    #date = db.Column(db.Datatime, default=datatime.utcnow)
 
     def __repr__(self):
         return '<Tovar %r>' % self.id
@@ -30,7 +31,7 @@ class Tovar(db.Model):
 @app.route('/home' ,methods=['POST','GET'])
 def index():
 
-    tovars =Tovar.query.all
+    tovars =Tovar.query.order_by().all()
 
 
     login = "Alast0r"
@@ -56,6 +57,7 @@ def create_tovar():
         description = request.form['description']
         login = request.form['login']
         price = request.form['price']
+        #date = date
 
         tovar = Tovar(id=id, description=description, login=login, price=price)
         try:
