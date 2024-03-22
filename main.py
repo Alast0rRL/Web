@@ -127,12 +127,22 @@ def search_results():
 
 @app.route('/create-users-page', methods=['POST'])
 def create_users_page():
-    return render_template("create-users.html")
+    login = "Alast0r"
+    balance = 123455
+
+    return render_template("create-user.html",
+        login=login,
+        balance=balance)
 
 
 @app.route('/create-tovar-page', methods=['POST'])
 def create_tovar_page():
-    return render_template("create-tovar.html")
+    login = "Alast0r"
+    balance = 123455
+
+    return render_template("create-tovar.html",
+        login=login,
+        balance=balance)
 
 @app.route('/help', methods=['POST'])
 def help():
