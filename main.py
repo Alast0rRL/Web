@@ -147,6 +147,8 @@ def search_results():
         return render_template("create-user.html")
     elif query.lower() == "товар":
         return render_template("create-tovar.html")
+    elif query.lower() == "ананас":
+        return render_template("ananas.html")
     else:
         return render_template("not_found.html")  # Добавлено сообщение о том, что запрос не найден
 
