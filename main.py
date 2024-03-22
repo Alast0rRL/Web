@@ -72,7 +72,7 @@ def create_tovar():
 
 
 
-@app.route('/create-users', methods=['POST','GET'])
+@app.route('/create-user', methods=['POST','GET'])
 def create_users():
     if request.method == 'POST':
         last_user = User.query.order_by(desc(User.id)).first()
@@ -117,7 +117,7 @@ def search_results():
     if query=="mem" or query=="мем" or query=="Mem" or query=="Мем":
         return render_template("mem/mem.html")
     elif query=="Равиль" or query=="равиль":
-        return render_template("create-users.html")
+        return render_template("create-user.html")
     elif query=="Товар" or query=="товар":
         return render_template("create-tovar.html")
     else:
@@ -125,8 +125,9 @@ def search_results():
         return f'Результаты поиска для: {query}'
 
 
-@app.route('/create-users-page', methods=['POST'])
-def create_users_page():
+@app.route('/create-user-page', methods=['POST'])
+def create_user_page():
+    
     login = "Alast0r"
     balance = 123455
 

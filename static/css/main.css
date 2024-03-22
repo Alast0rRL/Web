@@ -13,7 +13,7 @@ body{
 }
 
 
-header{
+header, footer{
     background-color: #232323;
     color: white;
     height: 100px;
@@ -249,4 +249,9 @@ main{
 
 .button_lmenu{
     width: 275px;
+}
+.title{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    text-align: center;
+    padding-top: 20px;
 }
