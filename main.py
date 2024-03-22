@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -47,14 +48,18 @@ def index():
         description_bl1=description_bl1,
         price_bl1=price_bl1,
         seller_login=seller_login,
-        seller_status=seller_status
-        
-        )
+        seller_status=seller_status)
 
 @app.route('/create-tovar', methods=['POST','GET'])
 def create_tovar():
     if request.method == 'POST':
-        id = request.form['id']
+        last_tovar = Tovar.query.order_by(desc(Tovar.id)).first()
+        if last_tovar:
+            id = last_tovar.id+1
+        else:
+            print("База данных пуста")
+            return "База данных пуста"
+        
         description = request.form['description']
         login = request.form['login']
         price = request.form['price']
@@ -78,7 +83,12 @@ def create_tovar():
 @app.route('/create-users', methods=['POST','GET'])
 def create_users():
     if request.method == 'POST':
-        id = request.form['id']
+        last_user = User.query.order_by(desc(User.id)).first()
+        if last_user:
+            id = last_user.id+1
+        else:
+            print("База данных пуста")
+            return "База данных пуста"
         login = request.form['login']
         email = request.form['email']
         password = request.form['password']
@@ -98,7 +108,7 @@ def create_users():
             print(f"Error adding user: {str(e)}")
             return f"Произошла ошибка при добавлении пользователя: {str(e)}"
     else:
-        return render_template("create-users.html")
+        return render_template("/")
 
 @app.route('/search', methods=['POST'])
 def search():
