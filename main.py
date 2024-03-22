@@ -11,9 +11,13 @@ app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.secret_key = 'your_secret_key'
 
+
+
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -35,6 +39,8 @@ class Tovar(db.Model):
 
     def __repr__(self):
         return '<Tovar %r>' % self.id
+
+
 
 @login_manager.user_loader
 def load_user(user_id):
