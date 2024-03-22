@@ -67,6 +67,9 @@ header{
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5px;
 }
 
 .button_up{
@@ -107,6 +110,7 @@ header{
     height: 40px;
     line-height: 40px;
     letter-spacing: 1px;
+    margin-bottom: 7px;
 }
 
 .knopka {
@@ -158,7 +162,7 @@ header{
 }
 main{
     font-family: 'Gang of Three[RUS by Daymarius]';
-    background-color: #232323;
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
     color: white;
     height: 500px;
     padding: 0px 15px;
@@ -223,7 +227,7 @@ main{
 .lmenu{
     font-family: 'Gang of Three[RUS by Daymarius]';
     float: left;
-    background-color: #232323;
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
     color: white;
     border: none;
     text-align: left;
@@ -235,5 +239,13 @@ main{
     align-items: center;
     margin-left: 125px;
     margin-top: 25px;
-    padding: top 5px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Изменено с 'center' на 'flex-start' */
+}
+
+.button_lmenu{
+    width: 275px;
 }

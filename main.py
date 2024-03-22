@@ -37,18 +37,10 @@ def index():
 
     login = "Alast0r"
     balance = 123455
-    description_bl1= "Описание товара 100000 букв игры аккаунгты деньги текст пробел пробел 123"
-    price_bl1= "50 000р"
-    seller_login = "Panov"
-    seller_status= "Online"
 
     return render_template("index.html",tovars=tovars,
         login=login,
-        balance=balance,
-        description_bl1=description_bl1,
-        price_bl1=price_bl1,
-        seller_login=seller_login,
-        seller_status=seller_status)
+        balance=balance)
 
 @app.route('/create-tovar', methods=['POST','GET'])
 def create_tovar():
