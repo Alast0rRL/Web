@@ -56,7 +56,25 @@ header{
     background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
     color: white;
     border-radius: 15px;
-    padding: 0px 20px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.button_up{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    display: inline-flex;
+    background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
+    color: white;
+    border-radius: 15px;
     border: none;
     font-size: 20px;
     cursor: pointer;
@@ -66,7 +84,10 @@ header{
     height: 40px;
     line-height: 40px;
     letter-spacing: 1px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
+
 
 .search-button {
     font-family: 'Gang of Three[RUS by Daymarius]';
@@ -79,6 +100,7 @@ header{
     cursor: pointer;
     border-radius: 15px;
     margin-left: 25px;
+    margin-right: 25px;
     width: 375px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     display: inline-block; /* или inline */
@@ -145,9 +167,9 @@ main{
     font-size: 20px;
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 200px;
+    margin-left: 450px;
     cursor: auto;
-    width: 1500px;
+    width: 1200px;
     height: inherit;
     padding-bottom: 1px;
 }
@@ -185,8 +207,7 @@ main{
     display: flex;
     height: 35px;
     width: auto ;
-    margin-top: 0px;
-    margin-left: 1150px;
+    margin-left: 925px;
     margin-bottom: 20px;
     letter-spacing: 1px;
  }
@@ -198,4 +219,21 @@ main{
 
 .date{
     margin-left: 20px;
+}
+.lmenu{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    float: left;
+    background-color: #232323;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 125px;
+    margin-top: 25px;
+    padding: top 5px;
 }

@@ -132,6 +132,16 @@ def search_results():
     # Здесь вы можете использовать запрос query для вывода результатов поиска
         return f'Результаты поиска для: {query}'
 
+
+@app.route('/create-users-page', methods=['POST'])
+def create_users_page():
+    return render_template("create-users.html")
+
+
+@app.route('/create-tovar-page', methods=['POST'])
+def create_tovar_page():
+    return render_template("create-tovar.html")
+
 @app.route('/help', methods=['POST'])
 def help():
     return redirect("https://i.pinimg.com/736x/94/95/d9/9495d94e62132fb17ae2b9ddff0690bf.jpg")
