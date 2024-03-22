@@ -4,6 +4,9 @@ from sqlalchemy import desc
 from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
+app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
+
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -45,62 +48,65 @@ def index():
 @app.route('/create-tovar', methods=['POST','GET'])
 def create_tovar():
     if request.method == 'POST':
-        last_tovar = Tovar.query.order_by(desc(Tovar.id)).first()
-        if last_tovar:
-            id = last_tovar.id+1
-        else:
-            print("База данных пуста")
-            return "База данных пуста"
-        
-        description = request.form['description']
-        login = request.form['login']
-        price = request.form['price']
-        date = datetime.utcnow()  # Используем datetime.utcnow() для получения текущей даты и времени
+        with app.app_context():
+            last_tovar = Tovar.query.order_by(desc(Tovar.id)).first()
+            if last_tovar:
+                id = last_tovar.id+1
+            else:
+                print("База данных пуста")
+                return "База данных пуста"
+            
+            description = request.form['description']
+            login = request.form['login']
+            price = request.form['price']
+            date = datetime.utcnow()  # Используем datetime.utcnow() для получения текущей даты и времени
 
-        tovar = Tovar(id=id, description=description, login=login, price=price, date=date)  # Передаем значение date в объект Tovar
-        try:
-            db.session.add(tovar)
-            db.session.commit()
-            print("Tovar added successfully!")
-            return redirect('/')
-        except Exception as e:
-            db.session.rollback()
-            print(f"Error adding tovar: {str(e)}")
-            return f"Произошла ошибка при добавлении товара: {str(e)}"
+            tovar = Tovar(id=id, description=description, login=login, price=price, date=date)  # Передаем значение date в объект Tovar
+            try:
+                db.session.add(tovar)
+                db.session.commit()
+                print("Tovar added successfully!")
+                return redirect('/')
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error adding tovar: {str(e)}")
+                return f"Произошла ошибка при добавлении товара: {str(e)}"
     else:
         return render_template("create-tovar.html")
 
-
-
 @app.route('/create-user', methods=['POST','GET'])
-def create_users():
+def create_user():
     if request.method == 'POST':
-        last_user = User.query.order_by(desc(User.id)).first()
-        if last_user:
-            id = last_user.id+1
-        else:
-            print("База данных пуста")
-            return "База данных пуста"
-        login = request.form['login']
-        email = request.form['email']
-        password = request.form['password']
-        balance = request.form['balance']
-        
-        print(f"Trying to add user with login: {login}, email: {email}, password: {password}, balance: {balance}")
+        with app.app_context():
+            last_user = User.query.order_by(desc(User.id)).first()
+            if last_user:
+                id = last_user.id+1
+            else:
+                print("База данных пуста")
+                return "База данных пуста"
+            
+            login = request.form['login']
+            email = request.form['email']
+            password = request.form['password']
+            balance = request.form['balance']
+            
+            print(f"Trying to add user with login: {login}, email: {email}, password: {password}, balance: {balance}")
 
-        user = User(id= id, login=login, email=email, password=password, balance=balance)
-        try:
-            print(f"User details: login={user.login}, email={user.email}, password={user.password}, balance={user.balance}")
-            db.session.add(user)
-            db.session.commit()
-            print("User added successfully!")
-            return redirect('/create-users')
-        except Exception as e:
-            db.session.rollback()
-            print(f"Error adding user: {str(e)}")
-            return f"Произошла ошибка при добавлении пользователя: {str(e)}"
+            user = User(id=id, login=login, email=email, password=password, balance=balance)
+            try:
+                print(f"User details: login={user.login}, email={user.email}, password={user.password}, balance={user.balance}")
+                db.session.add(user)
+                db.session.commit()
+                print("User added successfully!")
+                return redirect('/')
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error adding user: {str(e)}")
+                return f"Произошла ошибка при добавлении пользователя: {str(e)}"
     else:
-        return render_template("/")
+        return render_template("create-user.html")
+
+
 
 @app.route('/search', methods=['POST'])
 def search():
