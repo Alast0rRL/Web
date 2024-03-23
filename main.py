@@ -7,15 +7,17 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SECRET_KEY'] = '25565egorovpidor552625'
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.secret_key = 'your_secret_key'
 
+#login
+#login_manager = LoginManager(app)
 
 
 db = SQLAlchemy(app)
-login_manager = LoginManager()
-login_manager.init_app(app)
+
 
 
 
@@ -40,43 +42,21 @@ class Tovar(db.Model):
     def __repr__(self):
         return '<Tovar %r>' % self.id
 
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
-@app.route('/login-page', methods=['GET', 'POST'])
-def login_page():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        user = User.query.filter_by(login=username).first()  # Исправлено на login
-        if user and check_password_hash(user.password, password):
-            login_user(user)
-            return redirect(url_for('index'))
-        else:
-            flash('Invalid username or password')
-    return render_template('login.html')
-
-@app.route('/profile')
-@login_required
-def profile():
-    return render_template('profile.html')
-
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
-
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
 def index():
     tovars = Tovar.query.order_by(Tovar.date.desc()).all()
     login = "Alast0r"
     balance = 123455
+    flash('Пользователь создан')
     return render_template("index.html", tovars=tovars, login=login, balance=balance)
+
+@app.route('/login-user', methods=['POST', 'GET'])
+def login_user():
+    tovars = Tovar.query.order_by(Tovar.date.desc()).all()
+    login = "Alast0r"
+    balance = 123455
+    return render_template("login-user.html", tovars=tovars, login=login, balance=balance)
 
 @app.route('/create-tovar', methods=['POST', 'GET'])
 def create_tovar():
@@ -96,6 +76,7 @@ def create_tovar():
             try:
                 db.session.add(tovar)
                 db.session.commit()
+                flash('Товар добавлен')
                 print("Tovar added successfully!")
                 return redirect('/')
             except Exception as e:
@@ -124,10 +105,12 @@ def create_user():
                 db.session.add(user)
                 db.session.commit()
                 print("User added successfully!")
+                flash('Пользователь создан')
                 return redirect('/')
             except Exception as e:
                 db.session.rollback()
                 print(f"Error adding user: {str(e)}")
+                flash(f"Произошла ошибка при добавлении пользователя: {str(e)}")
                 return f"Произошла ошибка при добавлении пользователя: {str(e)}"
     else:
         return render_template("create-user.html")

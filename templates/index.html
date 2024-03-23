@@ -42,7 +42,9 @@
 
 
 </div>
-
+{% for msg in get_flashed_messages() %}
+    <div class="flash">{{msg}}</div>
+{% endfor %}
 
 <main>
     <h2 class="title">Товары</h2>
@@ -55,10 +57,10 @@
         <div class="str_1">
             <p>{{el.login}}</p>
             <p class="date">Дата: {{el.date.date()}}</p>
-            <div class="buy_button">
+            <form action="/help" method="post" class="buy_button">
                 <button class="button">В корзину</button>
                 <button class="button">Купить</button>
-            </div>
+            </form>
         </div>
     </div>
     {% endfor %}
