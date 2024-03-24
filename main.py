@@ -1,19 +1,21 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash, session, redirect, abort
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
 from sqlalchemy import desc
 from datetime import datetime
 
+#Сделать цикл для перебора пользователей в бд, если пользователь найден, то он войдет в аккаунт. Если не найден то переадресация на регистрацию
+
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config['SECRET_KEY'] = '25565egorovpidor552625'
+app.config['SECRET_KEY'] = '25565e552625'
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.secret_key = 'your_secret_key'
 
-#login
-#login_manager = LoginManager(app)
+
 
 
 db = SQLAlchemy(app)
@@ -42,21 +44,49 @@ class Tovar(db.Model):
     def __repr__(self):
         return '<Tovar %r>' % self.id
 
+
+
+
+
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
 def index():
     tovars = Tovar.query.order_by(Tovar.date.desc()).all()
     login = "Alast0r"
     balance = 123455
-    flash('Пользователь создан')
     return render_template("index.html", tovars=tovars, login=login, balance=balance)
 
-@app.route('/login-user', methods=['POST', 'GET'])
-def login_user():
-    tovars = Tovar.query.order_by(Tovar.date.desc()).all()
-    login = "Alast0r"
-    balance = 123455
-    return render_template("login-user.html", tovars=tovars, login=login, balance=balance)
+
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if 'userLogged' in session:
+        print("worked")
+        return render_template('profile.html', username=session['userLogged'])
+    elif request.method == 'POST'and request.form['username'] == "123" and request.form['password']=="123":
+        session['userLogged'] = request.form['username']
+        print("123 worked")
+        return render_template('profile.html', username=session['userLogged'])
+    else:
+        print("HZ")
+    print("not worked")
+    return render_template("login-user.html")
+
+@app.route('/logout')
+def logout():
+    session.pop('userLogged', None)
+    return redirect(url_for('login'))
+
+
+@app.route('/profile/<username>')
+def profile(username):
+    if 'userLogged' not in session or session['userLogged'] != username:
+        abort(401)
+    return f"Ты {username}?"
+
+
+
 
 @app.route('/create-tovar', methods=['POST', 'GET'])
 def create_tovar():
@@ -151,6 +181,11 @@ def create_tovar_page():
 @app.route('/help')
 def help():
     return redirect("https://i.pinimg.com/736x/94/95/d9/9495d94e62132fb17ae2b9ddff0690bf.jpg")
+
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    return render_template('error.html', error=str(e)), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

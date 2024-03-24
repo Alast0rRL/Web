@@ -28,10 +28,15 @@
             <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
     </header>
-    <div class="block"><p><h1>ОШИБКА</h1></p>
-        <div class="list" >
-            <p class="label">{{error}}</p>
-        </div>  
+
+
+    <div class="block_error">
+        <h1>ОШИБКА</h1>
+        <p>{{error}}</p>
+        <form action="/" method="post">
+            <button class="button error_button">Домой</button>
+        </form>
+    </div>  
 
 </body>
 </html>

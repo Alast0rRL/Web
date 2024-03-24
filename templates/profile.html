@@ -25,7 +25,7 @@
                     <button class="button_up basket">Корзина</button>
                 </form>
             </div>
-            <p class="login">{{login}}<br>{{balance}}$</p>
+            <p class="login">{{username}}<br>{{balance}}$</p>
             <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
     </header>
@@ -44,28 +44,24 @@
 
 
 </div>
-{% for msg in get_flashed_messages() %}
-    <div class="flash">{{msg}}</div>
-{% endfor %}
+
+
 
 <main>
-    <h2 class="title">Товары</h2>
-    {% for el in tovars %}
+    <h2 class="title">Профиль</h2>
         <div class="block"> 
         <div class="str_1">
-            <p>{{el.description}}</p>
-            <p class="price">{{el.price}} Р</p>
+            <p>{{username}}</p>
+        
         </div>
         <div class="str_1">
-            <p>{{el.login}}</p>
-            <p class="date">Дата: {{el.date.date()}}</p>
+            
             <form action="/help" method="post" class="buy_button">
                 <button class="button">В корзину</button>
                 <button class="button">Купить</button>
             </form>
         </div>
     </div>
-    {% endfor %}
 </main>
 
 <footer>
