@@ -274,3 +274,10 @@ main{
     bottom: 660px;
     left:600px;
 }
+
+.str{
+    display: flex;
+    flex-direction: row;
+    letter-spacing: 1px;
+    padding-top: 5px;
+}

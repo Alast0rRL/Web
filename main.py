@@ -5,7 +5,6 @@ from werkzeug.security import check_password_hash
 from sqlalchemy import desc
 from datetime import datetime
 
-#Сделать цикл для перебора пользователей в бд, если пользователь найден, то он войдет в аккаунт. Если не найден то переадресация на регистрацию
 
 
 app = Flask(__name__)
@@ -64,11 +63,13 @@ def login():
     if 'userLogged' in session:
         print("worked")
         return render_template('profile.html', username=session['userLogged'])
-    elif request.method == 'POST'and request.form['username'] == "123" and request.form['password']=="123":
-        session['userLogged'] = request.form['username']
-        print("123 worked")
-        return render_template('profile.html', username=session['userLogged'])
-    else:
+    elif request.method == 'POST':
+        for el in User.query.all():
+            print(el.login, el.password)
+            if request.form['username'] == el.login and request.form['password'] == el.password:
+                session['userLogged'] = request.form['username']
+                user = User.query.filter_by(login=request.form['username']).first()
+                return render_template('profile.html',user=user, username=session['userLogged'])
         print("HZ")
     print("not worked")
     return render_template("login-user.html")
