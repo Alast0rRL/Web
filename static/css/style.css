@@ -1,147 +1,283 @@
-body {
-    margin: 0px;
-}
-
-
-.header {
-    background-image: url(anogus.jpg);
-    height: 100vh;
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный цвет фона */
+    background-image: url('back.png'); /* Замените 'your-image-url.jpg' на путь к вашему изображению */
     background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    
 }
 
-.header-line {
-    padding-top: 45px;
-    
-    position: relative;
-    display: flex;
-    justify-content: center;
-    
+
+header, footer{
+    background-color: #232323;
+    color: white;
+    height: 100px;
+    padding: 0px 0px;
 }
 
-.header-title {
+.logo {
     position: absolute;
-    padding-top: 60px;
-    font-size: 36px;
-    font-family: "JetBrains Mono" ;
-    color: #FFFFFF;
-    font-weight: 400;
+    top: 0px;
+    left: 0px;
+    width: 75px;
+    height: 75px;
 }
 
-
-.header-down {
-    padding-top: 25px;
-    display: flex;
-    justify-content: space-around;
-    position: relative;
+.up {
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 55px;
+    width: 1600px;
+    display: inline-flex;
     
 }
 
+.block_up {
+    margin-left: 100px;
+    margin-top: 15px;
+    position: relative; /* Добавляем позиционирование относительно */
+}
 
+.search-container {
+    display: inline-block;
+    vertical-align: middle; /* Выравниваем вертикально по центру */
+}
+
+.button{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    display: inline-flex;
+    background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5px;
+}
+
+.button_up{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    display: inline-flex;
+    background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-left: 25px;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+.search-button {
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    background-color: #313131;
+    color: #989898;
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 375px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: inline-block; /* или inline */
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.knopka {
+    position: absolute;
+    left: 915px;
+    margin-top: 7px;
+    background-color: #232323;
+    font-family: 'VAG World';
+    border-radius: 10px;
+    padding: 0px 5px;
+    color: white;
+    border: none;
+    
+}
+
+.help{
+    background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
+}
+.basket{
+    background: linear-gradient(90deg, rgba(255, 251, 35, 0.76) 0%, rgba(231, 195, 35, 0.75) 100%);
+}
+
+.login {
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    text-align: center;
+    line-height: 1.5;
+    position: absolute;
+    margin-right: 25px;
+    right: 0px;
+    margin-top: 12px;
+    letter-spacing: 1px;
+}
 
 .ava {
     position: absolute;
-    left: 5px;
-    margin-top: -521px;
-    padding-left: 5px;
+    top: 0px;
+    left: 1600px;
+    width: 75px;
+    height: 75px;
 }
 
-.ava2 {
-    position: absolute;
-    left: 5px;
-    margin-top: -521px;
-    padding-left: 379px;
+.market-button:hover {
+    background-color: #ff7167;
+}
+.title{
+    position: relative;
+    text-align: center;
+    top: 15px;
+}
+main{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
+    color: white;
+    height: 500px;
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 450px;
+    cursor: auto;
+    width: 1200px;
+    height: inherit;
+    padding-bottom: 1px;
 }
 
-.ava3 {
-    position: absolute;
-    left: 5px;
-    margin-top: -521px;
-    padding-left: 752px;
+.block{
+    background-color: #313131;
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    color: white;
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-bottom: 50px;
     
 }
-
-.ava4 {
-    position: absolute;
-    left: 5px;
-    margin-top: -520px;
-    padding-left: 1127px;
-}
-
-.ava5 {
-    position: absolute;
-    left: 5px;
-    margin-top: -521px;
-    padding-left: 1499px;
-
-}
-
-
-
-.text-1 {
-    position: absolute;
-    margin-top: -120px;
-    left: 50px;
-    font-weight: 400;
-    font-size: 36px;
-    font-family: "JetBrains Mono" ;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-.text-2 {
-    position: absolute;
-    margin-top: -120px;
-    left: 420px;
-    font-weight: 400;
-    font-size: 36px;
-    font-family: "JetBrains Mono" ;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-.text-3 {
-    position: absolute;
-    margin-top: -120px;
-    left: 780px;
-    font-weight: 400;
-    font-size: 36px;
-    font-family: "JetBrains Mono" ;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-.text-4 {
-    position: absolute;
-    margin-top: -130px;
-    left: 1170px;
-    font-weight: 400;
-    font-size: 32px;
-    font-family: "JetBrains Mono" ;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-.text-5 {
-    position: absolute;
-    margin-top: -130px;
-    left: 1500px;
-    font-weight: 400;
-    font-size: 25px;
-    font-family: "JetBrains Mono" ;
-    color: #FFFFFF;
-    text-align: center;
-}
-
-.back {
-    border: none;
-    border-radius: 10px;
-    font-size: medium;
-    text-align: center;
-    justify-content: center;
+.str_1 {
     display: flex;
-    padding-top: 20px;
-    color: white
+    flex-direction: row;
+    letter-spacing: 1px;
 
+}
+
+.price {
+    margin-left: auto;
+    margin-right: 15px;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+
+ .buy_button{
+    position:absolute;
+    display: flex;
+    height: 35px;
+    width: auto ;
+    margin-left: 925px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+ }
+
+
+ form {
+    display: inline-block; /* или inline */
+}
+
+.date{
+    margin-left: 20px;
+}
+.lmenu{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    float: left;
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 125px;
+    margin-top: 25px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Изменено с 'center' на 'flex-start' */
+}
+
+.button_lmenu{
+    width: 275px;
+}
+.title{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    text-align: center;
+    padding-top: 20px;
+}
+
+.flash {
+    position: absolute;
+    float: left;
+    margin: 110px;
+    color: white;
+    padding: 15px 15px;   
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
+    color: #ffffff;
+    border: 2px solid #232323;
+    font-size: 50px;
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    line-height: 40px;
+    letter-spacing: 1px;
+    bottom: 660px;
+    left:600px;
+}
+
+.str{
+    display: flex;
+    flex-direction: row;
+    letter-spacing: 1px;
+    padding-top: 5px;
 }
