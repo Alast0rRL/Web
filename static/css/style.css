@@ -71,6 +71,7 @@ header, footer{
     display: flex;
     flex-direction: column;
     padding: 0px 5px;
+    text-decoration: none;
 }
 
 .button_up{
@@ -141,8 +142,15 @@ header, footer{
     position: absolute;
     margin-right: 25px;
     right: 0px;
-    margin-top: 12px;
+    margin-top: 15px;
     letter-spacing: 1px;
+    color: white;
+    background-color: #232323;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
 }
 
 .ava {

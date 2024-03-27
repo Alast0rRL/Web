@@ -13,16 +13,9 @@ app.config['SECRET_KEY'] = '25565e552625'
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.secret_key = 'your_secret_key'
-
-
-
-
 db = SQLAlchemy(app)
 
-
-
-
-class User(UserMixin, db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     login = db.Column(db.String(15), nullable=False, unique=True)
     email = db.Column(db.String(15), nullable=False, unique=True)
@@ -47,13 +40,28 @@ class Tovar(db.Model):
 
 
 
+
+
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
 def index():
     tovars = Tovar.query.order_by(Tovar.date.desc()).all()
-    login = "Alast0r"
-    balance = 123455
-    return render_template("index.html", tovars=tovars, login=login, balance=balance)
+    if 'userLogged' not in session:
+        username = "Войти"
+        balance = ""
+        email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+    else:
+        username = session['userLogged']
+        user = User.query.filter_by(login=session['userLogged']).first()
+        balance = user.balance if user else "$"
+        email = user.email if user else ""  # Получаем email пользователя или устанавливаем пустую строку
+    return render_template("index.html", tovars=tovars, username=username, balance=balance, email=email)
+
+
+
+
+
+
 
 
 
@@ -61,30 +69,47 @@ def index():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if 'userLogged' in session:
+        user = User.query.filter_by(login=session['userLogged']).first()
         print("worked")
-        return render_template('profile.html', username=session['userLogged'])
+        return redirect(url_for('profile', username=session['userLogged']))
     elif request.method == 'POST':
-        for el in User.query.all():
-            print(el.login, el.password)
-            if request.form['username'] == el.login and request.form['password'] == el.password:
-                session['userLogged'] = request.form['username']
-                user = User.query.filter_by(login=request.form['username']).first()
-                return render_template('profile.html',user=user, username=session['userLogged'])
-        print("HZ")
-    print("not worked")
+        username = request.form['username']
+        password = request.form['password']
+        print(password)
+        user = User.query.filter_by(login=username).first()
+        if user and user.password == password:
+            session['userLogged'] = username
+            return redirect(url_for('profile', username=username, password =password))
+        else:
+            flash('Неверное имя пользователя или пароль')
     return render_template("login-user.html")
-
 @app.route('/logout')
 def logout():
+    user = User.query.filter_by(login=session['userLogged']).first()
     session.pop('userLogged', None)
     return redirect(url_for('login'))
 
 
-@app.route('/profile/<username>')
-def profile(username):
-    if 'userLogged' not in session or session['userLogged'] != username:
-        abort(401)
-    return f"Ты {username}?"
+# @app.route('/profile/<username>')
+# def profile(username):
+#     if 'userLogged' not in session or session['userLogged'] != username:
+#         abort(401)
+#     user = User.query.filter_by(login=session['userLogged']).first()
+#     return render_template('profile.html',user=user, email=user.email, password = user.password, balance=user.balance ,username=session['userLogged'])
+
+
+
+
+
+@app.route('/profile')
+def profile():
+    users = User.query.all()
+    tovars = Tovar.query.all()
+    print(app.config['SQLALCHEMY_DATABASE_URI'])
+    user = User.query.filter_by(login=session['userLogged']).first()
+    return render_template('profile.html',user=user, email=user.email, password = user.password, balance=user.balance ,username=session['userLogged'])
+#    return f"{tovars}     |     {users}"
+
 
 
 
