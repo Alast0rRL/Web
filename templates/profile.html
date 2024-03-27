@@ -10,10 +10,12 @@
 <body>
     <header>
         <div class="up">
-            <img src="static/img/main/logo.png" class="logo" alt="Описание изображения">
+            <img src="static\img\main\logo.png" class="logo" alt="Описание изображения">
             <div class="block_up">
-                <button class="button_up">Маркет</button>
-                <button class="button_up">Торговая площадка</button>
+                <form action="/">
+                    <button class="button_up">Маркет</button>
+                    <button class="button_up">Торговая площадка</button>
+                </form>
                 <form action="/search" method="POST" class="search-container">
                     <input type="text" name="query" placeholder="Введите запрос" class="search-button">
                 </form>
@@ -24,8 +26,10 @@
                     <button class="button_up basket">Корзина</button>
                 </form>
             </div>
-            <p class="login">{{login}}<br>{{balance}}$</p>
-            <img src="static/img/main/ava.png" class="ava" alt="Описание изображения">
+            <form action="/login" method="post">
+                <a href="/login" class="login">{{username}}<br>{{balance}}Р</a>
+            </form>
+            <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
     </header>
 
@@ -47,13 +51,13 @@
     <main>
         <h2 class="title">Профиль</h2>
             <div class="block"> 
-                    <p class="str">login: {{username}}</p>
-                    <p class="str">email: {{email}}</p>
-                    <p class="str">password: {{password}}</p>
-                    <p class="str">Баланс:{{balance}}</p>
+                    <p class="str profile">login: {{username}}</p>
+                    <p class="str profile">email: {{email}}</p>
+                    <p class="str profile">password: {{password}}</p>
+                    <p class="str profile">Баланс:{{balance}}</p>
                     <form action="/help" method="post">
-                        <button class="button">Пополнить баланс</button>
-                        <button class="button">Вывести средства</button>
+                        <button class="button profile">Пополнить баланс</button>
+                        <button class="button profile">Вывести средства</button>
                     </form>
                     <form action="/logout" method="post">
                         <a href="/logout" class="button">Выйти</a>
@@ -63,7 +67,7 @@
     
     <footer>
         <div class="foot">
-            <h2 class="title">Цифровой рынок 2024</h2>
+            <h2 class="title">RedLine Market 2024</h2>
         </div>
     </footer>
 

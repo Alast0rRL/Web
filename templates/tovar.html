@@ -26,14 +26,11 @@
                 </form>
             </div>
             <form action="/login" method="post">
-                <a href="/login" class="login">{{username}}<br>{{balance}}Р</a>
+                <a href="/login" class="login">{{username}}<br>{{balance}}</a>
             </form>
             <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
     </header>
-
-
-
 <div class="lmenu main">
     <form action="/create-tovar-page" method="post">
         <button class="button button_lmenu">Добавить товар</button>
@@ -49,29 +46,16 @@
 
 
 </div>
-{% for msg in get_flashed_messages() %}
-    <div class="flash">{{msg}}</div>
-{% endfor %}
+
 
 <main>
-    <h2 class="title">Товары</h2>
-    {% for el in tovars %}
+    <h2 class="title">Товар</h2>
         <div class="block"> 
-        <div class="str_1">
-            <p>{{el.description}}</p>
-            <p class="price">{{el.price}} Р</p>
+            <h1>{{ tovar.description }}</h1>
+            <p>Цена: {{ tovar.price }} Р</p>
+            <p>Дата: {{ tovar.date.date() }}</p>
+            <a href="/" class="button">Главная</a>
         </div>
-        <div class="str_1">
-            <p>{{el.login}}</p>
-            <p class="date">Дата: {{el.date.date()}}</p>
-            <form action="/tovar" method="post" class="buy_button">
-                <input type="hidden" name="tovar_id" value="{{ el.id }}">
-                <button class="button">В корзину</button>
-                <button class="button" type="submit">Купить</button>
-            </form>
-        </div>
-    </div>
-    {% endfor %}
 </main>
 
 <footer>

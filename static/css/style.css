@@ -164,11 +164,15 @@ header, footer{
 .market-button:hover {
     background-color: #ff7167;
 }
+
+
 .title{
     position: relative;
     text-align: center;
     top: 15px;
 }
+
+
 main{
     font-family: 'Gang of Three[RUS by Daymarius]';
     background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
@@ -288,4 +292,18 @@ main{
     flex-direction: row;
     letter-spacing: 1px;
     padding-top: 5px;
+}
+
+.profile{
+    padding-top: 10px;
+    margin-top: 0px;
+    margin:10px;
+    line-height: 20px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    line-height: 0px;
 }

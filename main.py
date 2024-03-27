@@ -7,6 +7,10 @@ from datetime import datetime
 
 
 
+
+
+
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = '25565e552625'
@@ -48,12 +52,12 @@ def index():
     tovars = Tovar.query.order_by(Tovar.date.desc()).all()
     if 'userLogged' not in session:
         username = "Войти"
-        balance = ""
+        balance = "0Р"
         email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
     else:
         username = session['userLogged']
         user = User.query.filter_by(login=session['userLogged']).first()
-        balance = user.balance if user else "$"
+        balance = user.balance if user else "Р"
         email = user.email if user else ""  # Получаем email пользователя или устанавливаем пустую строку
     return render_template("index.html", tovars=tovars, username=username, balance=balance, email=email)
 
@@ -109,6 +113,30 @@ def profile():
     user = User.query.filter_by(login=session['userLogged']).first()
     return render_template('profile.html',user=user, email=user.email, password = user.password, balance=user.balance ,username=session['userLogged'])
 #    return f"{tovars}     |     {users}"
+
+
+
+
+
+@app.route('/tovar', methods=['POST'])
+def tovar_details():
+    tovars = Tovar.query.order_by(Tovar.date.desc()).all()
+    if 'userLogged' not in session:
+        username = "Войти"
+        balance = ""
+        email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+    else:
+        username = session['userLogged']
+        user = User.query.filter_by(login=session['userLogged']).first()
+        balance = user.balance if user else "Р"
+        email = user.email if user else ""  # Получаем email пользователя или устанавливаем пустую строку
+    if request.method == 'POST':
+        tovar_id = request.form['tovar_id']
+        tovar = Tovar.query.get(tovar_id)  # Получаем информацию о товаре по его идентификатору из базы данных
+        if tovar:
+            return render_template('tovar.html', tovar=tovar, tovars=tovars, username=username, balance=balance, email=email)
+        else:
+            return "Товар не найден"
 
 
 

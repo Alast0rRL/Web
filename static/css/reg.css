@@ -12,11 +12,16 @@ body{
     background-size: cover;
 }
 
-header, footer {
+header, footer{
     background-color: #232323;
     color: white;
     height: 100px;
     padding: 0px 0px;
+}
+
+.title{
+    position: relative;
+    text-align: center;
 }
 
 .logo {
@@ -221,4 +226,17 @@ body{
 .error_button{
     position: inherit;
     margin-right: 15px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    line-height: 0px;
+}
+.foot{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    position: absolute;
+    top:35px;
+    width: 100%;
 }
