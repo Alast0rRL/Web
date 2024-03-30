@@ -151,8 +151,8 @@ header, footer{
     text-align:center;
     color: #989898;
     margin-top:200px;
-    margin-left:700px;
-    margin-right: 700px;
+    margin-left:675px;
+    width: 500px;
     font-size: 20px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border: 2px solid #989898;

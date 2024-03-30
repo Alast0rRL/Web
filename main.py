@@ -8,9 +8,6 @@ from datetime import datetime
 
 
 
-
-
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = '25565e552625'
@@ -18,6 +15,8 @@ app.config['SQLALCHEMY_POOL_RECYCLE'] = 280
 app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 app.secret_key = 'your_secret_key'
 db = SQLAlchemy(app)
+
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -35,7 +34,9 @@ class Tovar(db.Model):
     description = db.Column(db.String(15), nullable=False, unique=True)
     login = db.Column(db.String(15), nullable=False)  # Убран параметр unique=True
     price = db.Column(db.Integer, nullable=False)
+    full_description = db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
+
 
     def __repr__(self):
         return '<Tovar %r>' % self.id
@@ -109,10 +110,16 @@ def logout():
 def profile():
     users = User.query.all()
     tovars = Tovar.query.all()
-    print(app.config['SQLALCHEMY_DATABASE_URI'])
     user = User.query.filter_by(login=session['userLogged']).first()
-    return render_template('profile.html',user=user, email=user.email, password = user.password, balance=user.balance ,username=session['userLogged'])
-#    return f"{tovars}     |     {users}"
+    if user:
+        email = user.email
+        password = user.password
+        balance = user.balance
+    else:
+        email = ""  # установите значение по умолчанию для email, если пользователь не найден
+        password = ""  # установите значение по умолчанию для password, если пользователь не найден
+        balance = ""  # установите значение по умолчанию для balance, если пользователь не найден
+    return render_template('profile.html', user=user, email=email, password=password, balance=balance, username=session['userLogged'])
 
 
 
@@ -145,28 +152,23 @@ def tovar_details():
 @app.route('/create-tovar', methods=['POST', 'GET'])
 def create_tovar():
     if request.method == 'POST':
-        with app.app_context():
-            last_tovar = Tovar.query.order_by(desc(Tovar.id)).first()
-            if last_tovar:
-                id = last_tovar.id + 1
-            else:
-                id = 1
-            
-            description = request.form['description']
-            login = request.form['login']
-            price = request.form['price']
-            date = datetime.utcnow()
-            tovar = Tovar(id=id, description=description, login=login, price=price, date=date)
-            try:
-                db.session.add(tovar)
-                db.session.commit()
-                flash('Товар добавлен')
-                print("Tovar added successfully!")
-                return redirect('/')
-            except Exception as e:
-                db.session.rollback()
-                print(f"Error adding tovar: {str(e)}")
-                return f"Произошла ошибка при добавлении товара: {str(e)}"
+        description = request.form['description']
+        login = request.form['login']
+        price = request.form['price']
+        full_description = request.form['full_description']  # Получаем полное описание товара из формы
+        date = datetime.utcnow()
+
+        tovar = Tovar(description=description, login=login, price=price, full_description=full_description, date=date)
+
+        try:
+            db.session.add(tovar)
+            db.session.commit()
+            flash('Товар добавлен')
+            return redirect('/')
+        except Exception as e:
+            db.session.rollback()
+            print(f"Error adding tovar: {str(e)}")
+            return f"Произошла ошибка при добавлении товара: {str(e)}"
     else:
         return render_template("create-tovar.html")
 

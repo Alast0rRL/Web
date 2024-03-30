@@ -55,13 +55,16 @@
                     <p class="str profile">email: {{email}}</p>
                     <p class="str profile">password: {{password}}</p>
                     <p class="str profile">Баланс:{{balance}}</p>
+                <div>
                     <form action="/help" method="post">
                         <button class="button profile">Пополнить баланс</button>
                         <button class="button profile">Вывести средства</button>
                     </form>
                     <form action="/logout" method="post">
-                        <a href="/logout" class="button">Выйти</a>
+                        <a href="/logout" class="button profile">Выйти</a>
+                        <a href="/" class="button profile">Главная</a>
                     </form>
+                </div>
             </div>
     </main>
     
