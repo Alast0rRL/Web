@@ -44,6 +44,25 @@ header, footer{
     
 }
 
+.flash {
+    position: absolute;
+    float: left;
+    margin: 110px;
+    color: white;
+    padding: 15px 15px;   
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
+    color: #ffffff;
+    border: 2px solid #232323;
+    font-size: 50px;
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    line-height: 40px;
+    letter-spacing: 1px;
+    bottom: 450px;
+    left:300px;
+}
+
 .block_up {
     margin-left: 100px;
     margin-top: 15px;
@@ -239,4 +258,15 @@ footer{
     position: absolute;
     top:35px;
     width: 100%;
+}
+
+.german_pridumal{
+    width: 220px !important;
+    min-height: 50px;
+    line-height: 50px;
+}
+
+input, textarea {
+    font-family: 'Arial';
+
 }

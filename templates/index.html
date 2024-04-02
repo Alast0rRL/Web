@@ -18,7 +18,7 @@
                 <form action="/search" method="POST" class="search-container">
                     <input type="text" name="query" placeholder="Поиск" class="search-button">
                 </form>
-                <form action="/help" method="post">
+                <form action="/help" method="get">
                     <button class="help button_up">Техническая поддержка</button>
                 </form>
                 <form action="/basket" method="post">
@@ -26,7 +26,7 @@
                 </form>
             </div>
             <form action="/login" method="post">
-                <a href="/login" class="login">{{username}}<br>{{balance}}Р</a>
+                <a href="/login" class="login">{{username}}<br>{{balance}}</a>
             </form>
             <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
