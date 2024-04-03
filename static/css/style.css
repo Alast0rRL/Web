@@ -305,9 +305,9 @@ main{
 }
 
 .flash {
-    position: absolute;
-    float: left;
-    margin: 110px;
+    position: fixed;
+    margin-left: 20%;
+    margin-right: 20%;
     color: white;
     padding: 15px 15px;   
     font-family: 'Gang of Three[RUS by Daymarius]';
@@ -319,9 +319,8 @@ main{
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     line-height: 40px;
     letter-spacing: 1px;
-    bottom: 660px;
-    left:600px;
-    z-index: 999;
+    margin-top: -5%;
+    z-index: 9;
 }
 
 .str{
@@ -384,10 +383,6 @@ main{
     border: 2px solid #989898;
     border-radius: 15px;
 }
-
-
-
-
 
 .label{
     background-color: #313131;
@@ -453,4 +448,8 @@ footer{
 input, textarea {
     font-family: 'Arial';
 
+}
+
+.home_button{
+    text-align: center;
 }

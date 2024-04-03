@@ -19,7 +19,7 @@ db = SQLAlchemy(app)
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True)
     login = db.Column(db.String(15), nullable=False, unique=True)
     email = db.Column(db.String(15), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
@@ -29,12 +29,14 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.id
 
+
 class Tovar(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     description = db.Column(db.String(15), nullable=False, unique=True)
     login = db.Column(db.String(15), nullable=False)  # Убран параметр unique=True
     price = db.Column(db.Integer, nullable=False)
     full_description = db.Column(db.Text, nullable=False)
+    connect= db.Column(db.Text, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
 
@@ -53,7 +55,7 @@ def index():
     tovars = Tovar.query.order_by(Tovar.date.desc()).all()
     if 'userLogged' not in session:
         username = "Войти"
-        balance = "0Р"
+        balance = "0"
         email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
     else:
         username = session['userLogged']
@@ -153,12 +155,18 @@ def tovar_details():
 def create_tovar():
     if request.method == 'POST':
         description = request.form['description']
-        login = request.form['login']
-        price = request.form['price']
+        login = session['userLogged']
+        try:
+            price = float(request.form['price'])
+        except:
+            flash('Товар добавлен')
+            e="Неправильный формат цены"
+            return render_template('error.html', error=str(e)), 500
         full_description = request.form['full_description']  # Получаем полное описание товара из формы
+        connect = request.form['connect']
         date = datetime.utcnow()
 
-        tovar = Tovar(description=description, login=login, price=price, full_description=full_description, date=date)
+        tovar = Tovar(description=description, login=login, price=price, full_description=full_description,connect=connect, date=date)
 
         try:
             db.session.add(tovar)
@@ -212,11 +220,7 @@ def search_results():
     query = request.args.get('query')
     if query.lower() == "mem":  # Исправлено на использование lower()
         return render_template("mem/mem.html")
-    elif query.lower() == "равиль":
-        return render_template("create-user.html")
-    elif query.lower() == "товар":
-        return render_template("create-tovar.html")
-    elif query.lower() == "ананас":
+    elif query.lower() == "ananas":
         return render_template("ananas.html")
     else:
         return render_template("not_found.html")  # Добавлено сообщение о том, что запрос не найден
@@ -239,9 +243,33 @@ def help():
     return redirect("https://i.pinimg.com/736x/94/95/d9/9495d94e62132fb17ae2b9ddff0690bf.jpg")
 
 
+
+
+
+
+
+
+
+@app.errorhandler(404)
+def handle_exception(e):
+    return render_template('error.html', error=str("Страница не найдена")), 500
+
+
+
 @app.errorhandler(Exception)
 def handle_exception(e):
     return render_template('error.html', error=str(e)), 500
 
+
+
+@app.errorhandler(404)
+def handle_exception(e):
+    return render_template('error.html', error=str("Страница не найдена")), 500
+
+
+
+
+
+
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=80)
+    app.run(debug=True)
