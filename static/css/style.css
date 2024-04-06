@@ -62,7 +62,7 @@ footer{
 }
 
 .up {
-    font-family: 'Gang of Three[RUS by Daymarius]';
+    font-family: 'font';
     position: absolute;
     margin-top: 15px;
     margin-left: 7%;
@@ -85,7 +85,7 @@ footer{
 }
 
 .button{
-    font-family: 'Gang of Three[RUS by Daymarius]';
+    font-family: 'font';
     display: inline-flex;
     background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
     color: white;
