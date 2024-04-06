@@ -15,16 +15,18 @@
                 <button class="button_up">Маркет</button>
                 <button class="button_up">Торговая площадка</button>
                 <form action="/search" method="POST" class="search-container">
-                    <input type="text" name="query" placeholder="Введите запрос" class="search-button">
+                    <input type="text" name="query" placeholder="Поиск" class="search-button">
                 </form>
-                <form action="/help" method="post">
+                <form action="/help" method="get">
                     <button class="help button_up">Техническая поддержка</button>
                 </form>
                 <form action="/basket" method="post">
                     <button class="button_up basket">Корзина</button>
                 </form>
             </div>
-            <p class="login">{{login}}<br>{{balance}}$</p>
+            <form action="/login" method="post">
+                <a href="/login" class="login">{{username}}<br>{{balance}}</a>
+            </form>
             <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
         </div>
     </header>

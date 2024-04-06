@@ -14,19 +14,23 @@
                     <button class="button_up">Маркет</button>
                     <button class="button_up">Торговая площадка</button>
                     <form action="/search" method="POST" class="search-container">
-                        <input type="text" name="query" placeholder="Введите запрос" class="search-button">
+                        <input type="text" name="query" placeholder="Поиск" class="search-button">
                     </form>
-                    <form action="/help" method="post">
+                    <form action="/help" method="get">
                         <button class="help button_up">Техническая поддержка</button>
                     </form>
                     <form action="/basket" method="post">
                         <button class="button_up basket">Корзина</button>
                     </form>
                 </div>
-                <p class="login">{{login}}<br>{{balance}}$</p>
+                <form action="/login" method="post">
+                    <a href="/login" class="login">{{username}}<br>{{balance}}Р</a>
+                </form>
                 <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
             </div>
         </header>
+
+        
         <div class="block_reg"><h1 class="title">Создание товара</h1>
             <div class="list">
                 <form method="POST" action="/create-tovar">
@@ -43,11 +47,11 @@
                 </form>
         </div>
     </div>
-<footer>
+<!-- <footer>
     <div class="foot">
         <h2 class="title">RedLine Market 2024</h2>
     </div>
-</footer>            
+</footer>             -->
 
     </body>
     </html>

@@ -73,6 +73,92 @@ def index():
 
 
 
+
+
+
+
+
+
+
+
+
+@app.route('/money', methods=['GET', 'POST'])
+def money():
+    if request.method == 'POST':
+        # Ваша логика для обработки POST-запроса
+        if 'userLogged' not in session:
+            username = "Войти"
+            balance = "0"
+            email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+            flash('Вы не авторизованы')
+            return redirect(url_for('login'))
+        else:
+            username = session['userLogged']
+            user = User.query.filter_by(login=session['userLogged']).first()
+            user.balance += 1000
+            try:
+                db.session.commit()
+                flash('+1000Р')
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error adding tovar: {str(e)}")
+                flash('Ошибка')
+            return redirect('/')
+    elif request.method == 'GET':
+        # Ваша логика для обработки GET-запроса (если необходимо)
+        pass
+
+
+@app.route('/demoney', methods=['GET', 'POST'])
+def demoney():
+    if request.method == 'POST':
+        # Ваша логика для обработки POST-запроса
+        if 'userLogged' not in session:
+            username = "Войти"
+            balance = "0"
+            email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+            flash('Вы не авторизованы')
+            return redirect(url_for('login'))
+        else:
+            username = session['userLogged']
+            user = User.query.filter_by(login=session['userLogged']).first()
+            user.balance -= 1000
+            try:
+                db.session.commit()
+                flash('-1000Р')
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error adding tovar: {str(e)}")
+                flash('Ошибка')
+            return redirect('/')
+    elif request.method == 'GET':
+        # Ваша логика для обработки GET-запроса (если необходимо)
+        pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if 'userLogged' in session:
@@ -178,7 +264,16 @@ def create_tovar():
             print(f"Error adding tovar: {str(e)}")
             return f"Произошла ошибка при добавлении товара: {str(e)}"
     else:
-        return render_template("create-tovar.html")
+        if 'userLogged' not in session:
+            username = "Войти"
+            balance = "0"
+            email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+        else:
+            username = session['userLogged']
+            user = User.query.filter_by(login=session['userLogged']).first()
+            balance = user.balance if user else "Р"
+            email = user.email if user else ""  # Получаем email пользователя или устанавливаем пустую строку
+        return render_template("create-tovar.html",username=username, balance=balance, email=email)
 
 @app.route('/create-user', methods=['POST', 'GET'])
 def create_user():
@@ -200,7 +295,7 @@ def create_user():
                 db.session.commit()
                 print("User added successfully!")
                 flash('Пользователь создан')
-                return redirect('/')
+                return redirect('/login')
             except Exception as e:
                 db.session.rollback()
                 print(f"Error adding user: {str(e)}")
@@ -227,15 +322,29 @@ def search_results():
 
 @app.route('/create-user-page', methods=['GET', 'POST'])
 def create_user_page():
-    login = "Alast0r"
-    balance = 123455
-    return render_template("create-user.html", login=login, balance=balance)
+    if 'userLogged' not in session:
+            username = "Войти"
+            balance = "0"
+            email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+    else:
+        username = session['userLogged']
+        user = User.query.filter_by(login=session['userLogged']).first()
+        balance = user.balance if user else "Р"
+        email = user.email if user else ""  # Получаем email пользователя или устанавливаем пустую строку
+    return render_template("create-user.html",username=username, balance=balance, email=email)
 
 @app.route('/create-tovar-page', methods=['GET', 'POST'])
 def create_tovar_page():
-    login = "Alast0r"
-    balance = 123455
-    return render_template("create-tovar.html", login=login, balance=balance)
+    if 'userLogged' not in session:
+            username = "Войти"
+            balance = "0"
+            email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+    else:
+        username = session['userLogged']
+        user = User.query.filter_by(login=session['userLogged']).first()
+        balance = user.balance if user else "Р"
+        email = user.email if user else ""  # Получаем email пользователя или устанавливаем пустую строку
+    return render_template("create-tovar.html",username=username, balance=balance, email=email)
 
 
 @app.route('/help')
@@ -262,11 +371,22 @@ def handle_exception(e):
 
 
 
-@app.errorhandler(404)
-def handle_exception(e):
-    return render_template('error.html', error=str("Страница не найдена")), 500
+# @app.errorhandler(userLogged)
+# def handle_exception(e):
+#     return render_template('error.html', error=str("Страница не найдена")), 500
 
 
+
+
+def application(environ, start_response):
+    status = '200 OK'
+    output = b'Hello World!'
+
+    response_headers = [('Content-type', 'text/plain'),
+                        ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
+
+    return [output]
 
 
 
