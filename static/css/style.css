@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    src: url('static\fonts\font.woff2') format('woff2'),
+         url('static\fonts\font.woff') format('woff');
+    /* Дополнительные настройки, такие как начертание и жирность, могут быть добавлены здесь */
+}
+
+
+
+
+
+
+
+
 body{
     margin: 0;
     padding: 0;
@@ -62,7 +76,7 @@ footer{
 }
 
 .up {
-    font-family: 'font';
+    font-family: 'Gang of Three[RUS by Daymarius]';
     position: absolute;
     margin-top: 15px;
     margin-left: 7%;
@@ -85,7 +99,7 @@ footer{
 }
 
 .button{
-    font-family: 'font';
+    font-family: 'Gang of Three[RUS by Daymarius]';
     display: inline-flex;
     background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
     color: white;
