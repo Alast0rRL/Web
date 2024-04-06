@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Gang of Three[RUS by Daymarius]';
+    font-family: 'Gang of Three[RUS by Daymarius]', sans-serif;
     src: url('../fonts/font.woff2') format('woff2'),
          url('../fonts/font.woff') format('woff');
     /* Дополнительные настройки, такие как начертание и жирность, могут быть добавлены здесь */
@@ -77,7 +77,7 @@ footer{
 }
 
 .up {
-    font-family: 'Gang of Three[RUS by Daymarius]';
+    font-family: 'Gang of Three[RUS by Daymarius]', sans-serif;
     position: absolute;
     margin-top: 15px;
     margin-left: 7%;
