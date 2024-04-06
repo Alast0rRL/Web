@@ -473,72 +473,22 @@ input, textarea {
 
 
 
-/* Общие стили для ноутбуков */
+/* Добавьте эти стили в конец вашего CSS-файла */
+
 @media screen and (max-width: 1366px) {
-    .up {
-        width: 90%;
-    }
-
-    .block_up {
-        margin-left: 50px;
-    }
-
-    .button,
-    .button_up,
-    .search-button,
-    .label {
-        font-size: 18px;
-        height: 40px;
-        line-height: 40px;
-    }
-
-    .button,
-    .button_up {
-        margin: 10px;
-    }
-
-    .search-button {
-        margin: 10px 15px;
-        width: calc(50% - 30px);
-    }
-
-    .knopka {
-        left: calc(50% - 25px);
-        top: 10px;
-    }
-
-    .login {
-        right: 15px;
-        top: 15px;
-    }
-
-    main {
-        width: 95%;
-        max-width: none;
-        margin: 0 auto;
-    }
-
-    .block_reg,
-    .block_error {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .label {
-        width: calc(90% - 50px);
-        margin: 10px 25px;
-    }
-
+    /* Левое меню */
     .lmenu {
-        margin-left: 10px;
-        margin-top: 50%;
+        margin-left: 25px; /* Уменьшаем отступ слева */
     }
 
-    .flash {
-        left: 10%;
-        right: 10%;
-        font-size: 30px;
-        line-height: 30px;
-        margin-top: -10%;
+    /* Верхнее меню */
+    .up {
+        padding-left: 25px; /* Уменьшаем отступ слева */
+        padding-right: 25px; /* Уменьшаем отступ справа */
+    }
+
+    /* Кнопки в меню товаров */
+    .button_lmenu {
+        width: 100%; /* Занимает всю доступную ширину */
     }
 }
