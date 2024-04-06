@@ -5,6 +5,7 @@ from werkzeug.security import check_password_hash
 from sqlalchemy import desc
 from datetime import datetime
 
+#0.1
 
 
 
@@ -103,37 +104,27 @@ def money():
                 db.session.rollback()
                 print(f"Error adding tovar: {str(e)}")
                 flash('Ошибка')
-            return redirect('/')
+            return render_template('scam.html')
     elif request.method == 'GET':
         # Ваша логика для обработки GET-запроса (если необходимо)
         pass
 
 
-@app.route('/demoney', methods=['GET', 'POST'])
-def demoney():
-    if request.method == 'POST':
-        # Ваша логика для обработки POST-запроса
-        if 'userLogged' not in session:
-            username = "Войти"
-            balance = "0"
-            email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
-            flash('Вы не авторизованы')
-            return redirect(url_for('login'))
-        else:
-            username = session['userLogged']
-            user = User.query.filter_by(login=session['userLogged']).first()
-            user.balance -= 1000
-            try:
-                db.session.commit()
-                flash('-1000Р')
-            except Exception as e:
-                db.session.rollback()
-                print(f"Error adding tovar: {str(e)}")
-                flash('Ошибка')
-            return redirect('/')
-    elif request.method == 'GET':
-        # Ваша логика для обработки GET-запроса (если необходимо)
-        pass
+# @app.route('/demoney', methods=['GET', 'POST'])
+# def demoney():
+#     if request.method == 'POST':
+#         # Ваша логика для обработки POST-запроса
+#         if 'userLogged' not in session:
+#             username = "Войти"
+#             balance = "0"
+#             email = ""  # Добавляем пустую строку для email, чтобы избежать ошибки
+#             flash('Вы не авторизованы')
+#             return redirect(url_for('login'))
+#         else:
+#             return render_template('scam.html')
+#     elif request.method == 'GET':
+#         # Ваша логика для обработки GET-запроса (если необходимо)
+#         pass
 
 
 
