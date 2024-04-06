@@ -2,109 +2,185 @@
     font-family: 'Gang of Three[RUS by Daymarius]';
     src: url('../fonts/font.woff2') format('woff2'),
          url('../fonts/font.woff') format('woff');
+    /* Дополнительные настройки, такие как начертание и жирность, могут быть добавлены здесь */
 }
 
-body {
+
+
+
+
+
+
+
+
+body{
     margin: 0;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-image: url('back.png');
+    background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный цвет фона */
+    background-image: url('back.png'); /* Замените 'your-image-url.jpg' на путь к вашему изображению */
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
+
+
+
+
 
 header {
     background-color: #232323;
     color: white;
     height: 100px;
-    padding: 0;
+    padding: 0px;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 5;
+    width: 100%; /* чтобы растянуть header по всей ширине экрана */
+    z-index: 5; /* Устанавливаем очень высокий z-index */
 }
 
-footer {
+
+footer{
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 0%;
     width: 100%;
-    height: 100px;
+    line-height: 0px;
+    margin-top: auto;
+    width: 100%;
+    height: 100px; /* Замените это на желаемую высоту вашего footer */
     background-color: #232323;
     color: white;
-    padding: 0;
-    z-index: 5;
+    height: 100px;
+    padding: 0px;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* чтобы растянуть footer по всей ширине экрана */
+    top: 0;
+    left: 0;
+    width: 100%; /* чтобы растянуть header по всей ширине экрана */
+    z-index: 5; /* Устанавливаем очень высокий z-index */
 }
+
+
+
 
 .logo {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
     width: 75px;
     height: 75px;
 }
 
 .up {
     font-family: 'Gang of Three[RUS by Daymarius]';
-    position: relative;
-    margin: 15px 7%;
-    width: 86%;
-    display: flex;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 55px;
+    width: 1600px;
+    display: inline-flex;
+    
 }
 
 .block_up {
     margin-left: 100px;
     margin-top: 15px;
-    position: relative;
+    position: relative; /* Добавляем позиционирование относительно */
 }
 
 .search-container {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: middle; /* Выравниваем вертикально по центру */
 }
 
-.button, .button_up, .search-button {
+.button{
     font-family: 'Gang of Three[RUS by Daymarius]';
     display: inline-flex;
+    background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
     color: white;
     border-radius: 15px;
     border: none;
+    font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     height: 40px;
     line-height: 40px;
     letter-spacing: 1px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5px;
     text-decoration: none;
 }
 
-.button, .button_up {
+.button_up{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    display: inline-flex;
     background: linear-gradient(90deg, rgba(255, 45, 45, 0.75) 0%, rgba(242, 91, 91, 0.75) 100%);
-    margin: 10px 15px;
-    padding: 0 5px;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-left: 25px;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
+
 .search-button {
+    font-family: 'Gang of Three[RUS by Daymarius]';
     background-color: #313131;
     color: #989898;
-    padding: 0 15px;
-    margin: 10px 25px;
-    width: calc(25% - 50px);
+    padding: 0px 15px;
+    border: none;
+    text-align: left;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 375px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: inline-block; /* или inline */
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
 }
 
 .knopka {
     position: absolute;
-    left: calc(50% - 50px);
-    top: 7px;
+    left: 915px;
+    margin-top: 7px;
     background-color: #232323;
     font-family: 'VAG World';
     border-radius: 10px;
     padding: 0px 5px;
     color: white;
     border: none;
+    
+}
+
+.help{
+    background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
+}
+.basket{
+    background: linear-gradient(90deg, rgba(255, 251, 35, 0.76) 0%, rgba(231, 195, 35, 0.75) 100%);
 }
 
 .login {
@@ -112,20 +188,23 @@ footer {
     text-align: center;
     line-height: 1.5;
     position: absolute;
-    right: 25px;
-    top: 15px;
+    margin-right: 25px;
+    right: 0px;
+    margin-top: 15px;
     letter-spacing: 1px;
     color: white;
     background-color: #232323;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+
 }
 
 .ava {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0px;
+    left: 1600px;
     width: 75px;
     height: 75px;
 }
@@ -134,36 +213,39 @@ footer {
     background-color: #ff7167;
 }
 
-.title {
+
+.title{
+    position: relative;
     text-align: center;
     line-height: 20px;
     padding-bottom: 10px;
     top: 15px;
 }
 
-main {
+
+main{
     font-family: 'Gang of Three[RUS by Daymarius]';
-    background-color: rgba(35, 35, 35, 0.95);
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
     color: white;
-    padding: 0 15px;
+    height: auto;
+    padding: 0px 15px;
     text-align: left;
     font-size: 20px;
     cursor: pointer;
     border-radius: 15px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 100px;
+    margin-left: 450px;
+    width: 1200px;
+    padding-bottom:100px ;
     border: 2px solid #989898;
     position: relative;
     top: 125px;
 }
 
-.block {
+.block{
     background-color: #313131;
     font-family: 'Gang of Three[RUS by Daymarius]';
     color: white;
-    padding: 0 15px;
+    padding: 0px 15px;
     border: none;
     text-align: left;
     font-size: 20px;
@@ -172,11 +254,11 @@ main {
     margin-bottom: 50px;
     border: 2px solid #989898;
 }
-
 .str_1 {
     display: flex;
     flex-direction: row;
     letter-spacing: 1px;
+
 }
 
 .price {
@@ -186,25 +268,32 @@ main {
     letter-spacing: 1px;
 }
 
-.buy_button {
-    position: absolute;
+
+ .buy_button{
+    position:absolute;
     display: flex;
     height: 35px;
-    width: auto;
-    margin-left: calc(50% - 50px);
+    width: auto ;
+    margin-left: 925px;
     margin-bottom: 20px;
     letter-spacing: 1px;
+ }
+
+
+ form {
+    display: inline-block; /* или inline */
 }
 
-.date {
+.date{
     margin-left: 20px;
 }
-
-.lmenu {
+.lmenu{
     font-family: 'Gang of Three[RUS by Daymarius]';
+    float: left;
     position: fixed;
-    background-color: rgba(35, 35, 35, 0.95);
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
     color: white;
+    border: none;
     text-align: left;
     font-size: 20px;
     cursor: pointer;
@@ -212,55 +301,98 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 25px;
-    margin-top: 25%;
-    padding: 5px 0;
+    margin-left: 125px;
+    margin-top: 125px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Изменено с 'center' на 'flex-start' */
     border: 2px solid #989898;
 }
 
-.button_lmenu {
+.button_lmenu{
     width: 275px;
+}
+.title{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    text-align: center;
+    padding-top: 20px;
 }
 
 .flash {
     position: fixed;
-    left: 20%;
-    right: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
     color: white;
-    padding: 15px;
+    padding: 15px 15px;   
     font-family: 'Gang of Three[RUS by Daymarius]';
     background: linear-gradient(90deg, rgba(92, 194, 33, 0.75) 0%, rgba(72, 190, 108, 0.75) 100%);
+    color: #ffffff;
+    border: 2px solid #232323;
     font-size: 50px;
     border-radius: 15px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    line-height: 50px;
+    line-height: 40px;
     letter-spacing: 1px;
     margin-top: -5%;
     z-index: 9;
 }
 
-.str {
+.str{
     display: flex;
     flex-direction: row;
     letter-spacing: 1px;
     padding-top: 5px;
 }
 
-.profile {
+.profile{
     display: flex;
     padding: 10px;
-    margin: 5px 0 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     line-height: 20px;
+    height: auto;
     text-align: center;
-    align-items: center;
+    align-items: center; /* Центрирование по вертикали */
 }
 
-.block_reg, .block_error {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.block_reg{
     font-family: 'Gang of Three[RUS by Daymarius]';
-    background-color: rgba(35, 35, 35, 0.95);
-    text-align: center;
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
+    text-align:center;
     color: #989898;
-    margin-top: 200px;
+    margin-top:200px;
+    margin-left:675px;
     width: 500px;
     font-size: 20px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -268,32 +400,145 @@ main {
     border-radius: 15px;
 }
 
-.label {
+.label{
     background-color: #313131;
     color: #989898;
-    padding: 0 15px;
+    padding: 0px 15px;
     border: none;
+    text-align: left;
     font-size: 20px;
     cursor: pointer;
     border-radius: 15px;
-    margin: 5px 25px;
-    width: calc(50% - 50px);
+    margin-left: 25px;
+    width: 220px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    display: inline-block;
+    display: inline-block; /* или inline */
     height: 40px;
-    line-height: 40px;
+    line-height: 100px;
+    margin-bottom: 5px;
 }
 
-.button_container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+.button_container{
+    display: flex; /* Используем flex для расположения кнопок горизонтально */
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    margin: 20px; /* Добавим небольшой отступ между формой и кнопками */
+}
+
+
+
+
+
+
+.block_error{
+    font-family: 'Gang of Three[RUS by Daymarius]';
+    background-color: rgba(35, 35, 35, 0.95); /* Цвет #232323 с 50% прозрачности */
+    text-align:center;
+    color: #989898;
+    margin-top:200px;
+    margin-left:700px;
+    margin-right: 700px;
+    font-size: 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 2px solid #989898;
+    border-radius: 15px;
+}
+
+.error_button{
+    position: inherit;
+    margin-right: 15px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    line-height: 0px;
+}
+
+.german_pridumal{
+    width: 220px !important;
+    min-height: 50px;
+    line-height: 50px;
 }
 
 input, textarea {
     font-family: 'Arial';
+
 }
 
-.home_button {
+.home_button{
     text-align: center;
+}
+
+
+
+
+/* Общие стили для ноутбуков */
+@media screen and (max-width: 1366px) {
+    .up {
+        width: 90%;
+    }
+
+    .block_up {
+        margin-left: 50px;
+    }
+
+    .button,
+    .button_up,
+    .search-button,
+    .label {
+        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .button,
+    .button_up {
+        margin: 10px;
+    }
+
+    .search-button {
+        margin: 10px 15px;
+        width: calc(50% - 30px);
+    }
+
+    .knopka {
+        left: calc(50% - 25px);
+        top: 10px;
+    }
+
+    .login {
+        right: 15px;
+        top: 15px;
+    }
+
+    main {
+        width: 95%;
+        max-width: none;
+        margin: 0 auto;
+    }
+
+    .block_reg,
+    .block_error {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .label {
+        width: calc(90% - 50px);
+        margin: 10px 25px;
+    }
+
+    .lmenu {
+        margin-left: 10px;
+        margin-top: 50%;
+    }
+
+    .flash {
+        left: 10%;
+        right: 10%;
+        font-size: 30px;
+        line-height: 30px;
+        margin-top: -10%;
+    }
 }
