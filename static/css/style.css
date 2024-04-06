@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Gang of Three[RUS by Daymarius]', sans-serif;
+    font-family: 'Gang of Three[RUS by Daymarius]';
     src: url('../fonts/font.woff2') format('woff2'),
          url('../fonts/font.woff') format('woff');
     /* Дополнительные настройки, такие как начертание и жирность, могут быть добавлены здесь */
