@@ -1,0 +1,73 @@
+@media screen and (max-width: 1615px) {
+    .search-button {
+        width: 250px;
+    }
+
+    .up form {
+        margin-right: 2%; /* Примерное значение, которое можно настроить */
+    }
+
+    .logo {
+        margin-left: -125%;
+    }
+
+    .lmenu{
+        margin-left:1%;
+    }
+
+    main{
+        margin-left: 25%;
+        width: 72.5%;
+    }
+
+    .buy_button{
+        margin-top: -5%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

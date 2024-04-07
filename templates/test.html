@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровой рынок аккаунтов</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/test.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/adaptive.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    
+
+</head>
+<body>
+    <header>
+        <div class="up">
+            <img src="static\img\main\logo.png" class="logo" alt="Описание изображения">
+            <form>
+                <button class="button">Маркет</button>
+            </form>
+            <form action="/" method="get">
+                <button class="button">Торговая площадка</button>
+            </form>
+                <form action="/search" method="POST" class="search-container">
+                    <input type="text" name="query" placeholder="Поиск" class="search-button">
+                </form>
+                <form action="/help" method="get">
+                    <button class="button help ">Техническая поддержка</button>
+                </form>
+                <form action="/basket" method="post">
+                    <button class="button basket">Корзина</button>
+                </form>
+            <form action="/login" method="post">
+                <a href="/login" class="login">{{username}}<br>{{balance}}Р</a>
+            </form>
+            <img src="static\img\main\ava.png" class="ava" alt="Описание изображения">
+        </div>
+    </header>
+
+
+
+<div class="lmenu">
+    <form action="/create-tovar-page" method="post">
+        <button class="button button_lmenu">Добавить товар</button>
+    </form>
+    <form action="/create-user-page" method="post">
+        <button class="button button_lmenu">Добавить пользователя</button>
+    </form>
+    <form action="/money" method="post">
+        <button class="button button_lmenu">Пополнить баланс</button>
+    </form>
+    <form action="/help" method="get">
+        <button class="button button_lmenu">Вывести средства</button>
+    </form>
+</div>
+
+
+
+{% for msg in get_flashed_messages() %}
+    <div class="flash">{{msg}}</div>
+{% endfor %}
+
+<main>
+    <h2 class="title">Товары</h2>
+    {% for el in tovars %}
+        <div class="block"> 
+            <div class="str">
+                <p>{{el.description}}</p>
+                <p class="price">{{el.price}} Р</p>
+            </div>
+            <div class="str">
+                <p>{{el.login}}</p>
+                <p class="date">Дата: {{el.date.date()}}</p>
+            </div>
+            <form action="/tovar" method="post" class="buy_button">
+                <button class="button">В корзину</button>
+                <button class="button" type="submit">Купить</button>
+            </form>
+        </div>
+    {% endfor %}
+</main>
+
+<!-- <footer>
+    <div class="foot">
+        <h2 class="title">RedLine Market 2024</h2>
+    </div>
+</footer> -->
+
+</body>
+</html>
